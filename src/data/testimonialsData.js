@@ -1,0 +1,38 @@
+export const testimonialsData = [
+  {
+    id: 1,
+    name: "Sarah Chen",
+    role: "Senior Sci-Fi Critic, Cyber Reads",
+    avatar: "https://images.unsplash.com/photo-1534528741775-53994a69daeb?w=150&auto=format&fit=crop&q=80",
+    quote: "This book takes the concept of immortality and turns it on its head. It is deeply unsettling and makes you truly ponder the cost of endless life. A must-read for anyone who enjoys thought-provoking science fiction.",
+    rating: 5,
+    bookRef: "THE BOX",
+  },
+  {
+    id: 2,
+    name: "David Miller",
+    role: "Literary Analyst & Futurist",
+    avatar: "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=150&auto=format&fit=crop&q=80",
+    quote: "From the very first page, The Box pulls you into a terrifying future. The protagonist's journey is visceral and heartbreaking. It’s a powerful examination of humanity’s desires and the ethics of technology.",
+    rating: 5,
+    bookRef: "THE BOX",
+  },
+  {
+    id: 3,
+    name: "Emily Carter",
+    role: "Editor, Nebula Horizon Magazine",
+    avatar: "https://images.unsplash.com/photo-1517841905240-472988babdf9?w=150&auto=format&fit=crop&q=80",
+    quote: "Stanley Paden masterfully crafts a future that feels both distant and eerily possible. The exploration of scientific advancement and its dark consequences is incredibly compelling. I could not put it down.",
+    rating: 5,
+    bookRef: "RETURN FROM EGYPT",
+  },
+  {
+    id: 4,
+    name: "Alex Johnson",
+    role: "Tech Ethics Columnist",
+    avatar: "https://images.unsplash.com/photo-1500648767791-00dcc994a43e?w=150&auto=format&fit=crop&q=80",
+    quote: "The Box is a brilliant reflection on our society’s present challenges. It explores climate change, AI containment, and human collaboration through a unique futuristic lens. Truly a book that stays with you.",
+    rating: 5,
+    bookRef: "THE BOX",
+  },
+];
