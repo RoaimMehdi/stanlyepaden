@@ -17,7 +17,7 @@ export default function AuthorBio() {
           <div className="lg:col-span-5 flex justify-center">
             <div className="relative w-full max-w-md aspect-[4/5] rounded-3xl overflow-hidden glass-panel-glow border-2 border-purple-500/50 shadow-[0_0_50px_rgba(135,54,247,0.4)] group">
               <img
-                src="/assets/author_paden.png"
+                src="/assets/author_paden_portrait.png"
                 alt="Stanley Paden Author"
                 className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700"
               />

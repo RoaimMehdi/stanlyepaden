@@ -50,7 +50,7 @@ export default function HeroSection({ onOpenExcerpt, onOpenTrailer }) {
 
   return (
     <section id="hero" ref={heroRef} className="relative min-h-screen flex items-center pt-24 sm:pt-28 pb-12 sm:pb-16 overflow-hidden">
-      
+
       {/* Particle Matrix Canvas */}
       <HeroCanvas />
 
@@ -85,9 +85,9 @@ export default function HeroSection({ onOpenExcerpt, onOpenTrailer }) {
             </h1>
 
             <p className="font-outfit text-base sm:text-xl font-light tracking-wide text-purple-200/90 leading-snug">
-              Award-Winning Sci-Fi Author of{' '}
+              Author Sci-Fi Author of{' '}
               <span className="text-cyan-300 font-semibold">The Box</span>,{' '}
-              <span className="text-cyan-300 font-semibold">Return From Egypt</span> &amp;{' '}
+              <span className="text-cyan-300 font-semibold">Return From Egypt</span> &{' '}
               <span className="text-cyan-300 font-semibold">I Hate Saint Louis</span>
             </p>
 
@@ -160,7 +160,7 @@ export default function HeroSection({ onOpenExcerpt, onOpenTrailer }) {
               >
                 <img
                   src="/assets/the_box_cover.png"
-                  alt="The Box Book Cover"
+                  alt="Stanley Paden Author Portrait"
                   className="w-full h-full object-cover"
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-[#020103] via-transparent to-transparent opacity-80" />
@@ -168,14 +168,14 @@ export default function HeroSection({ onOpenExcerpt, onOpenTrailer }) {
                 {/* Badge */}
                 <div className="absolute top-2 sm:top-3 left-2 sm:left-3 px-2 sm:px-2.5 py-0.5 sm:py-1 rounded-md bg-purple-900/80 backdrop-blur-md border border-purple-400/50 flex items-center gap-1.5">
                   <Radio className="w-3 h-3 text-cyan-400 animate-pulse" />
-                  <span className="font-jura text-[9px] sm:text-[10px] font-bold text-white uppercase tracking-wider">Featured Novel</span>
+                  <span className="font-jura text-[9px] sm:text-[10px] font-bold text-white uppercase tracking-wider">Verified Author</span>
                 </div>
 
                 {/* LIA Waveform bars + play button */}
                 <div className="absolute bottom-3 sm:bottom-4 left-3 sm:left-4 right-3 sm:right-4 flex items-center justify-between">
                   <div className="flex flex-col text-left">
-                    <span className="font-orbitron text-[10px] sm:text-xs font-bold text-white">THE BOX</span>
-                    <span className="font-jura text-[9px] sm:text-[10px] text-cyan-300">Stanley Paden</span>
+                    <span className="font-orbitron text-[10px] sm:text-xs font-bold text-white">STANLEY PADEN</span>
+                    <span className="font-jura text-[9px] sm:text-[10px] text-cyan-300">Sci-Fi Novelist &amp; Speculative Futurist</span>
                   </div>
                   {/* LIA Waveform bars */}
                   <div className="flex items-center gap-[2px] sm:gap-[3px] mr-1 sm:mr-2">
@@ -197,11 +197,11 @@ export default function HeroSection({ onOpenExcerpt, onOpenTrailer }) {
               {/* HUD floating tags */}
               <div className="absolute -top-2 -right-2 sm:-right-4 px-2.5 sm:px-3 py-1 sm:py-1.5 rounded-lg glass-panel-cyan text-[9px] sm:text-[11px] font-jura text-cyan-300 flex items-center gap-1.5 shadow-[0_0_15px_rgba(0,240,255,0.4)]">
                 <Sparkles className="w-3 h-3 text-cyan-400" />
-                <span>Sci-Fi Novel of 2026</span>
+                <span>Award Winner</span>
               </div>
               <div className="absolute -bottom-3 -left-2 sm:-left-4 px-2.5 sm:px-3 py-1 sm:py-1.5 rounded-lg glass-panel-glow text-[9px] sm:text-[11px] font-jura text-purple-300 flex items-center gap-1.5 shadow-[0_0_15px_rgba(135,54,247,0.4)]">
                 <ShieldAlert className="w-3 h-3 text-purple-400" />
-                <span>Immortality Protocol</span>
+                <span>6+ Masterworks</span>
               </div>
             </div>
           </div>

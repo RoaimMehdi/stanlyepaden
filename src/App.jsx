@@ -28,7 +28,7 @@ export default function App() {
   useGlobalScrollReveal();
 
   return (
-    <div className="relative overflow-x-hidden">
+    <div className="relative overflow-x-clip">
       {/* Custom glow cursor */}
       <CustomCursor />
 

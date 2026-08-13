@@ -1,8 +1,10 @@
 import React, { useState } from 'react';
 import Navbar from '../components/Navbar';
 import HeroSection from '../components/HeroSection';
-import LiaVoiceWidget from '../components/LiaVoiceWidget';
 import LiaRadialWheel from '../components/LiaRadialWheel';
+import LiaAuthorSpotlight from '../components/LiaAuthorSpotlight';
+import LiaVideoReelSection from '../components/LiaVideoReelSection';
+import LiaVoiceWidget from '../components/LiaVoiceWidget';
 import LiaFeatureScroll from '../components/LiaFeatureScroll';
 import Footer from '../components/Footer';
 import BookModal from '../components/BookModal';
@@ -13,7 +15,7 @@ export default function HomePage() {
   const [isTrailerOpen, setIsTrailerOpen] = useState(false);
 
   return (
-    <div className="min-h-screen bg-[#020103] text-gray-100 selection:bg-purple-600 selection:text-white relative overflow-x-hidden">
+    <div className="min-h-screen bg-[#020103] text-gray-100 selection:bg-purple-600 selection:text-white relative overflow-x-clip">
       
       {/* Navigation Header */}
       <Navbar />
@@ -25,13 +27,19 @@ export default function HomePage() {
           onOpenTrailer={() => setIsTrailerOpen(true)}
         />
 
-        {/* 2. LIA Interactive Holo-Voice AI Assistant Widget */}
-        <LiaVoiceWidget onOpenExcerpt={setActiveExcerptId} />
-
-        {/* 3. LIA Radial Arc Wheel Dial Showcase */}
+        {/* 2. LIA Scroll-Driven Sticky Rotating Arc Wheel (Pins & spins wheel as user scrolls down, then releases down to Author section) */}
         <LiaRadialWheel onOpenExcerpt={setActiveExcerptId} />
 
-        {/* 4. LIA 3D Scroll-Driven Rolling Deck Showcase */}
+        {/* 3. LIA Author Spotlight (Stanley Paden Official Portrait Photo + Lore Summary) */}
+        <LiaAuthorSpotlight />
+
+        {/* 4. LIA Interactive Video Side Showcase (Video Reel, Sound Waves, Captions) */}
+        <LiaVideoReelSection onOpenTrailer={() => setIsTrailerOpen(true)} />
+
+        {/* 5. LIA Interactive Holo-Voice AI Assistant Widget */}
+        <LiaVoiceWidget onOpenExcerpt={setActiveExcerptId} />
+
+        {/* 6. LIA 3D Scroll-Driven Rolling Deck Showcase */}
         <LiaFeatureScroll onOpenExcerpt={setActiveExcerptId} />
       </main>
 
