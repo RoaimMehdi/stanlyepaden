@@ -4,37 +4,58 @@ import { booksData } from '../data/booksData';
 
 export default function LiaRadialWheel({ onOpenExcerpt }) {
   const sectionRef = useRef(null);
-  const [scrollProgress, setScrollProgress] = useState(0);
+  const targetProgressRef = useRef(0);
+  const currentProgressRef = useRef(0);
+  const [smoothProgress, setSmoothProgress] = useState(0);
   const [manualIndex, setManualIndex] = useState(null);
 
   const total = booksData.length;
   const angleStep = 32;
 
+  // Silky 60FPS Lerp Physics loop
   useEffect(() => {
+    let animId;
+
+    const lerpLoop = () => {
+      const diff = targetProgressRef.current - currentProgressRef.current;
+      if (Math.abs(diff) > 0.0001) {
+        currentProgressRef.current += diff * 0.08;
+        setSmoothProgress(currentProgressRef.current);
+      }
+      animId = requestAnimationFrame(lerpLoop);
+    };
+
+    animId = requestAnimationFrame(lerpLoop);
+
     const handleScroll = () => {
       const el = sectionRef.current;
       if (!el) return;
       const rect = el.getBoundingClientRect();
-      // The sticky inner div is 100vh, so scrollable track = total height - viewport height
       const totalScrollable = el.offsetHeight - window.innerHeight;
       if (totalScrollable <= 0) return;
       const scrolled = -rect.top;
       const progress = Math.max(0, Math.min(1, scrolled / totalScrollable));
-      setScrollProgress(progress);
+      targetProgressRef.current = progress;
     };
 
     window.addEventListener('scroll', handleScroll, { passive: true });
+    window.addEventListener('resize', handleScroll, { passive: true });
     handleScroll();
-    return () => window.removeEventListener('scroll', handleScroll);
+
+    return () => {
+      cancelAnimationFrame(animId);
+      window.removeEventListener('scroll', handleScroll);
+      window.removeEventListener('resize', handleScroll);
+    };
   }, []);
 
   const activeIndex = manualIndex !== null
     ? manualIndex
-    : Math.min(total - 1, Math.floor(scrollProgress * total + 0.1));
+    : Math.min(total - 1, Math.floor(smoothProgress * total + 0.1));
 
   const diskRotation = manualIndex !== null
     ? -(manualIndex * angleStep)
-    : -(scrollProgress * (total - 1) * angleStep);
+    : -(smoothProgress * (total - 1) * angleStep);
 
   const handleNext = () => setManualIndex((activeIndex + 1) % total);
   const handlePrev = () => setManualIndex((activeIndex - 1 + total) % total);
@@ -49,17 +70,11 @@ export default function LiaRadialWheel({ onOpenExcerpt }) {
   ];
 
   return (
-    /*
-     * Sticky scroll-driven section:
-     * - Outer wrapper: h-[140vh] provides the scroll track (40vh of scroll triggers rotation)
-     * - Inner sticky div: pins at top:0, height=100vh while user scrolls through the 40vh track
-     * - Once 40vh consumed → section scrolls away naturally, NO black gap below
-     */
-    <div ref={sectionRef} className="relative h-[140vh] select-none">
-
+    <div ref={sectionRef} className="relative h-[180vh] select-none">
+      
       {/* Sticky Viewport Stage */}
       <div className="sticky top-0 h-screen flex items-center justify-center overflow-hidden">
-
+        
         {/* Ambient Lighting */}
         <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(ellipse_at_50%_0%,#4c1380_0%,#1a0433_50%,#05010a_90%)]" />
         <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(circle_at_50%_50%,rgba(135,54,247,0.35)_0%,transparent_70%)]" />
@@ -68,7 +83,7 @@ export default function LiaRadialWheel({ onOpenExcerpt }) {
 
           {/* Giant Arc Wheel Card */}
           <div className="relative h-[600px] sm:h-[700px] rounded-[40px] sm:rounded-[80px] border-2 border-purple-500/40 bg-gradient-to-b from-[#240847]/95 via-[#120324]/95 to-[#070114] shadow-[0_0_100px_rgba(76,19,128,0.8)] overflow-hidden">
-
+            
             {/* Top Hub — Inverted Black Dome */}
             <div className="absolute top-0 left-1/2 -translate-x-1/2 z-30 pointer-events-none">
               <div className="w-72 sm:w-[460px] h-28 sm:h-36 rounded-b-[140px] sm:rounded-b-[230px] bg-[#05010a] border-b-2 border-x-2 border-purple-500/60 flex flex-col items-center justify-center pt-2 sm:pt-4 shadow-[0_20px_50px_rgba(0,0,0,0.95)]">
@@ -92,20 +107,21 @@ export default function LiaRadialWheel({ onOpenExcerpt }) {
               </span>
             </div>
 
-            {/* Rotating Disk */}
+            {/* Rotating Disk with Lerp Easing */}
             <div className="absolute inset-0 flex items-center justify-center pointer-events-none">
               <div
                 className="relative w-[1300px] h-[1300px] sm:w-[1500px] sm:h-[1500px] rounded-full border-2 border-purple-500/30 pointer-events-auto"
                 style={{
                   top: '-530px',
                   transform: `rotate(${diskRotation}deg)`,
-                  transition: 'transform 0.5s cubic-bezier(0.25, 0.46, 0.45, 0.94)',
+                  transition: 'transform 0.4s cubic-bezier(0.16, 1, 0.3, 1)',
+                  willChange: 'transform',
                 }}
               >
                 {/* Glowing Arc Rim */}
                 <div className="absolute inset-0 rounded-full border-4 border-purple-400/20 shadow-[inset_0_0_60px_rgba(135,54,247,0.3)]" />
 
-                {/* Book Cards along the arc */}
+                {/* Sector Cards */}
                 {booksData.map((book, idx) => {
                   const isActive = idx === activeIndex;
                   const sectorAngle = (idx - 1.5) * angleStep;
@@ -126,7 +142,7 @@ export default function LiaRadialWheel({ onOpenExcerpt }) {
                         }`}
                         style={{
                           transform: `rotate(${-sectorAngle - diskRotation}deg)`,
-                          transition: 'transform 0.5s cubic-bezier(0.25, 0.46, 0.45, 0.94), border-color 0.3s, box-shadow 0.3s',
+                          transition: 'transform 0.4s cubic-bezier(0.16, 1, 0.3, 1), border-color 0.3s, box-shadow 0.3s',
                         }}
                       >
                         {/* Icon */}

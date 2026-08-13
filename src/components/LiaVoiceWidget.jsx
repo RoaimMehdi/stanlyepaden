@@ -40,7 +40,7 @@ export default function LiaVoiceWidget({ onOpenExcerpt }) {
   };
 
   return (
-    <section className="relative py-16 bg-[#030209] overflow-hidden border-y border-purple-900/30">
+    <section className="relative py-16 bg-section overflow-hidden border-y border-purple-900/30">
       
       {/* Background Radial Glow */}
       <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(ellipse_at_50%_50%,rgba(135,54,247,0.15)_0%,transparent_60%)]" />
@@ -84,7 +84,7 @@ export default function LiaVoiceWidget({ onOpenExcerpt }) {
                   : 'bg-gradient-to-r from-purple-600 to-cyan-500'
               }`}
             >
-              <div className="w-full h-full bg-[#070512] rounded-full flex items-center justify-center">
+              <div className="w-full h-full bg-card rounded-full flex items-center justify-center">
                 {isListening ? (
                   <RefreshCw className="w-8 h-8 text-amber-400 animate-spin" />
                 ) : (
@@ -154,7 +154,7 @@ export default function LiaVoiceWidget({ onOpenExcerpt }) {
             <span className="font-jura text-xs text-gray-400">Novel: {prompts[selectedPrompt].bookId.toUpperCase()}</span>
             <button
               onClick={() => onOpenExcerpt(prompts[selectedPrompt].bookId)}
-              className="px-4 py-2 rounded-full font-orbitron text-xs font-bold text-white bg-gradient-to-r from-purple-600 to-cyan-500 hover:from-cyan-400 hover:to-purple-600 transition-all shadow-[0_0_15px_rgba(135,54,247,0.4)]"
+              className="btn-shine px-4 py-2 rounded-full font-orbitron text-xs font-bold text-white bg-gradient-to-r from-purple-600 to-cyan-500 hover:from-cyan-400 hover:to-purple-600 transition-all shadow-[0_0_15px_rgba(135,54,247,0.4)]"
             >
               Read Excerpt →
             </button>

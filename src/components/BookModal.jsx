@@ -8,7 +8,7 @@ export default function BookModal({ bookId, onClose }) {
   const [isPlayingAudio, setIsPlayingAudio] = useState(false);
 
   return (
-    <div className="fixed inset-0 z-50 flex items-center justify-center p-4 sm:p-6 overflow-y-auto bg-[#020103]/90 backdrop-blur-xl animate-fadeIn">
+    <div className="fixed inset-0 z-50 flex items-center justify-center p-4 sm:p-6 overflow-y-auto bg-[var(--bg-page)]/90 backdrop-blur-xl animate-fadeIn">
       
       {/* Modal Container */}
       <div className="relative w-full max-w-4xl max-h-[90vh] flex flex-col rounded-3xl glass-panel-glow border border-purple-500/40 shadow-[0_0_60px_rgba(135,54,247,0.4)] overflow-hidden">
@@ -38,7 +38,7 @@ export default function BookModal({ bookId, onClose }) {
         </div>
 
         {/* Tab Navigation */}
-        <div className="flex items-center gap-2 px-6 py-3 bg-[#070512] border-b border-purple-900/30">
+        <div className="flex items-center gap-2 px-6 py-3 bg-card border-b border-purple-900/30">
           <button
             onClick={() => setActiveTab('excerpt')}
             className={`px-4 py-1.5 rounded-full font-jura text-xs font-bold uppercase tracking-wider transition-all ${
@@ -72,7 +72,7 @@ export default function BookModal({ bookId, onClose }) {
                 onClick={() => setIsPlayingAudio(!isPlayingAudio)}
                 className="w-10 h-10 rounded-full bg-gradient-to-br from-purple-500 to-cyan-400 p-0.5 shadow-[0_0_15px_rgba(0,240,255,0.6)] hover:scale-105 transition-transform"
               >
-                <div className="w-full h-full bg-[#070512] rounded-full flex items-center justify-center">
+                <div className="w-full h-full bg-card rounded-full flex items-center justify-center">
                   {isPlayingAudio ? (
                     <Volume2 className="w-4 h-4 text-cyan-300 animate-pulse" />
                   ) : (
@@ -128,7 +128,7 @@ export default function BookModal({ bookId, onClose }) {
               href={book.buyLinks.amazon}
               target="_blank"
               rel="noopener noreferrer"
-              className="px-4 py-2 rounded-full font-orbitron text-xs font-bold text-white bg-gradient-to-r from-purple-600 to-indigo-600 hover:from-cyan-500 hover:to-purple-600 flex items-center gap-2 shadow-[0_0_15px_rgba(135,54,247,0.4)]"
+              className="btn-shine px-4 py-2 rounded-full font-orbitron text-xs font-bold text-white bg-gradient-to-r from-purple-600 to-indigo-600 hover:from-cyan-500 hover:to-purple-600 flex items-center gap-2 shadow-[0_0_15px_rgba(135,54,247,0.4)]"
             >
               <ShoppingBag className="w-4 h-4" />
               <span>Get Hardcover</span>

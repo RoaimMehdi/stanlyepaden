@@ -43,7 +43,7 @@ export default function PodcastPage() {
   const [activeEpisode, setActiveEpisode] = useState(null);
 
   return (
-    <div className="min-h-screen bg-[#020103] text-gray-100 selection:bg-purple-600 selection:text-white">
+    <div className="min-h-screen bg-page text-gray-100 selection:bg-purple-600 selection:text-white">
       <Navbar />
 
       {/* Page Header */}
@@ -80,7 +80,7 @@ export default function PodcastPage() {
       <TrailerSection isTrailerOpen={false} setIsTrailerOpen={() => {}} />
 
       {/* Podcast Episodes List */}
-      <section className="py-16 bg-[#030208] relative">
+      <section className="py-16 bg-section relative">
         <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
           
           <div className="text-center space-y-3 mb-12" data-reveal>
@@ -120,7 +120,7 @@ export default function PodcastPage() {
 
                 <button
                   onClick={() => setActiveEpisode(ep)}
-                  className="px-5 py-3 rounded-full font-orbitron text-xs font-bold uppercase tracking-wider text-white bg-gradient-to-r from-purple-600 to-cyan-500 hover:from-cyan-400 hover:to-purple-600 shadow-[0_0_20px_rgba(135,54,247,0.4)] transition-all flex items-center gap-2 flex-shrink-0"
+                  className="btn-shine px-5 py-3 rounded-full font-orbitron text-xs font-bold uppercase tracking-wider text-white bg-gradient-to-r from-purple-600 to-cyan-500 hover:from-cyan-400 hover:to-purple-600 shadow-[0_0_20px_rgba(135,54,247,0.4)] transition-all flex items-center gap-2 flex-shrink-0"
                 >
                   <Play className="w-4 h-4 fill-white" />
                   <span>Listen Now</span>

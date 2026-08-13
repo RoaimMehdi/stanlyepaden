@@ -128,7 +128,7 @@ function ProductCard({ product, onAddToCart }) {
           </a>
           <button
             onClick={handleAdd}
-            className={`flex items-center gap-2 px-4 py-2.5 rounded-xl font-orbitron text-[10px] font-bold uppercase tracking-wider text-white transition-all ${
+            className={`btn-shine flex items-center gap-2 px-4 py-2.5 rounded-xl font-orbitron text-[10px] font-bold uppercase tracking-wider text-white transition-all ${
               added ? 'bg-green-600 shadow-[0_0_20px_rgba(34,197,94,0.5)]' : btnClass
             }`}
           >
@@ -158,7 +158,7 @@ export default function ShopPage() {
   const cartCount = cart.reduce((s, i) => s + i.qty, 0);
 
   return (
-    <div className="min-h-screen bg-[#020103] pt-20">
+    <div className="min-h-screen bg-page pt-20">
 
       {/* Marquee Banner */}
       <div className="overflow-hidden py-4 border-y border-purple-900/30 relative">
@@ -273,7 +273,7 @@ export default function ShopPage() {
                     <span className="text-xl text-cyan-400">${total.toFixed(2)}</span>
                   </div>
                   <a href="https://stanleypaden.com/cart/" target="_blank" rel="noopener noreferrer"
-                    className="block w-full py-3.5 rounded-xl font-orbitron text-xs font-bold uppercase tracking-widest text-white text-center bg-gradient-to-r from-purple-600 to-cyan-500 hover:from-cyan-400 hover:to-purple-600 shadow-[0_0_25px_rgba(135,54,247,0.5)] transition-all">
+                    className="btn-shine block w-full py-3.5 rounded-xl font-orbitron text-xs font-bold uppercase tracking-widest text-white text-center bg-gradient-to-r from-purple-600 to-cyan-500 hover:from-cyan-400 hover:to-purple-600 shadow-[0_0_25px_rgba(135,54,247,0.5)] transition-all">
                     Checkout →
                   </a>
                 </div>

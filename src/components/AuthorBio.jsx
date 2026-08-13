@@ -4,7 +4,7 @@ import { FacebookIcon, InstagramIcon, LinkedinIcon } from './SocialIcons';
 
 export default function AuthorBio() {
   return (
-    <section id="about" className="relative py-24 bg-[#020103] overflow-hidden">
+    <section id="about" className="relative py-24 bg-page overflow-hidden">
       
       {/* Background Ambient Glow */}
       <div className="pointer-events-none absolute bottom-0 right-0 w-96 h-96 bg-purple-600/10 rounded-full blur-3xl" />
@@ -19,6 +19,7 @@ export default function AuthorBio() {
               <img
                 src="/assets/author_paden_portrait.png"
                 alt="Stanley Paden Author"
+                data-reveal="img"
                 className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700"
               />
               <div className="absolute inset-0 bg-gradient-to-t from-[#020103] via-transparent to-transparent opacity-70" />

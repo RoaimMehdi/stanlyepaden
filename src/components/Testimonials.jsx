@@ -16,7 +16,7 @@ export default function Testimonials() {
   const activeReview = testimonialsData[currentIndex];
 
   return (
-    <section id="testimonials" className="relative py-24 bg-[#020103] overflow-hidden">
+    <section id="testimonials" className="relative py-24 bg-page overflow-hidden">
       
       {/* Background Glow */}
       <div className="pointer-events-none absolute top-1/3 left-1/4 w-80 h-80 bg-purple-600/10 rounded-full blur-3xl" />
@@ -24,7 +24,7 @@ export default function Testimonials() {
       <div className="relative z-10 max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
         
         {/* Header */}
-        <div className="text-center max-w-3xl mx-auto space-y-4 mb-16">
+        <div className="text-center max-w-3xl mx-auto space-y-4 mb-16" data-reveal>
           <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full glass-panel-cyan border border-cyan-500/40">
             <MessageSquareCode className="w-4 h-4 text-cyan-400" />
             <span className="font-jura text-xs font-bold uppercase tracking-widest text-cyan-300">
@@ -42,7 +42,7 @@ export default function Testimonials() {
         </div>
 
         {/* Testimonials Carousel Card */}
-        <div className="relative glass-panel-glow rounded-3xl p-8 sm:p-12 border border-purple-500/40 text-center shadow-[0_0_60px_rgba(135,54,247,0.3)]">
+        <div className="relative glass-panel-glow rounded-3xl p-8 sm:p-12 border border-purple-500/40 text-center shadow-[0_0_60px_rgba(135,54,247,0.3)]" data-reveal data-delay="100">
           
           <Quote className="w-12 h-12 text-purple-400/30 mx-auto mb-6" />
 
@@ -64,6 +64,7 @@ export default function Testimonials() {
               <img
                 src={activeReview.avatar}
                 alt={activeReview.name}
+                data-reveal="img"
                 className="w-full h-full object-cover"
               />
             </div>

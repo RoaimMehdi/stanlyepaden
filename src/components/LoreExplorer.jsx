@@ -17,7 +17,7 @@ export default function LoreExplorer() {
   const activeTheme = loreThemes.find((t) => t.id === activeThemeId) || loreThemes[0];
 
   return (
-    <section id="lore" className="relative py-24 bg-[#05030c] overflow-hidden">
+    <section id="lore" className="relative py-24 bg-section overflow-hidden">
 
       {/* Marquee */}
       <div className="pointer-events-none absolute top-8 left-0 right-0 overflow-hidden opacity-15 select-none">

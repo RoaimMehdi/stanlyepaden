@@ -24,7 +24,7 @@ export default function ContactSection() {
   };
 
   return (
-    <section id="contact" className="relative py-24 bg-[#020103] overflow-hidden">
+    <section id="contact" className="relative py-24 bg-page overflow-hidden">
       
       {/* Glow Backdrop */}
       <div className="pointer-events-none absolute bottom-0 left-0 w-96 h-96 bg-cyan-600/10 rounded-full blur-3xl" />
@@ -34,7 +34,7 @@ export default function ContactSection() {
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-start">
           
           {/* Left Column: Contact Info & Map */}
-          <div className="lg:col-span-5 space-y-8 text-left">
+          <div className="lg:col-span-5 space-y-8 text-left" data-reveal data-reveal="left">
             <div>
               <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full glass-panel-glow border border-purple-500/30 mb-4">
                 <MessageSquare className="w-4 h-4 text-purple-400" />
@@ -130,7 +130,7 @@ export default function ContactSection() {
           </div>
 
           {/* Right Column: Holo Contact Form */}
-          <div className="lg:col-span-7 glass-panel-glow rounded-3xl p-6 sm:p-10 border border-purple-500/40 text-left relative">
+          <div className="lg:col-span-7 glass-panel-glow rounded-3xl p-6 sm:p-10 border border-purple-500/40 text-left relative" data-reveal data-reveal="right" data-delay="100">
             
             {submitted ? (
               <div className="py-16 text-center space-y-4 animate-fadeIn">
@@ -162,7 +162,7 @@ export default function ContactSection() {
                       value={formData.name}
                       onChange={handleChange}
                       placeholder="e.g. Commander Sarah Vance"
-                      className="w-full px-4 py-3 rounded-xl bg-[#070512] border border-purple-800/40 focus:border-cyan-400 text-sm text-white outline-none transition-colors"
+                      className="w-full px-4 py-3 rounded-xl bg-card border border-purple-800/40 focus:border-cyan-400 text-sm text-white outline-none transition-colors"
                     />
                   </div>
 
@@ -177,7 +177,7 @@ export default function ContactSection() {
                       value={formData.email}
                       onChange={handleChange}
                       placeholder="e.g. sarah@cyberdomain.com"
-                      className="w-full px-4 py-3 rounded-xl bg-[#070512] border border-purple-800/40 focus:border-cyan-400 text-sm text-white outline-none transition-colors"
+                      className="w-full px-4 py-3 rounded-xl bg-card border border-purple-800/40 focus:border-cyan-400 text-sm text-white outline-none transition-colors"
                     />
                   </div>
                 </div>
@@ -194,7 +194,7 @@ export default function ContactSection() {
                       value={formData.phone}
                       onChange={handleChange}
                       placeholder="+1 (555) 019-2831"
-                      className="w-full px-4 py-3 rounded-xl bg-[#070512] border border-purple-800/40 focus:border-cyan-400 text-sm text-white outline-none transition-colors"
+                      className="w-full px-4 py-3 rounded-xl bg-card border border-purple-800/40 focus:border-cyan-400 text-sm text-white outline-none transition-colors"
                     />
                   </div>
 
@@ -209,7 +209,7 @@ export default function ContactSection() {
                       value={formData.subject}
                       onChange={handleChange}
                       placeholder="e.g. Media Inquiry / Book Signing"
-                      className="w-full px-4 py-3 rounded-xl bg-[#070512] border border-purple-800/40 focus:border-cyan-400 text-sm text-white outline-none transition-colors"
+                      className="w-full px-4 py-3 rounded-xl bg-card border border-purple-800/40 focus:border-cyan-400 text-sm text-white outline-none transition-colors"
                     />
                   </div>
                 </div>
@@ -225,13 +225,13 @@ export default function ContactSection() {
                     value={formData.message}
                     onChange={handleChange}
                     placeholder="Type your transmission message here..."
-                    className="w-full px-4 py-3 rounded-xl bg-[#070512] border border-purple-800/40 focus:border-cyan-400 text-sm text-white outline-none transition-colors resize-none"
+                    className="w-full px-4 py-3 rounded-xl bg-card border border-purple-800/40 focus:border-cyan-400 text-sm text-white outline-none transition-colors resize-none"
                   />
                 </div>
 
                 <button
                   type="submit"
-                  className="w-full py-4 rounded-xl font-orbitron text-xs font-bold uppercase tracking-widest text-white bg-gradient-to-r from-purple-600 via-indigo-600 to-cyan-500 hover:from-cyan-400 hover:to-purple-600 shadow-[0_0_25px_rgba(135,54,247,0.5)] transition-all flex items-center justify-center gap-2"
+                  className="btn-shine w-full py-4 rounded-xl font-orbitron text-xs font-bold uppercase tracking-widest text-white bg-gradient-to-r from-purple-600 via-indigo-600 to-cyan-500 hover:from-cyan-400 hover:to-purple-600 shadow-[0_0_25px_rgba(135,54,247,0.5)] transition-all flex items-center justify-center gap-2"
                 >
                   <Send className="w-4 h-4 text-cyan-200" />
                   <span>Transmit Message</span>

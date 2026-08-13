@@ -45,12 +45,12 @@ export default function PageReveal({ onComplete }) {
   return (
     <div
       ref={overlayRef}
-      className="fixed inset-0 z-[9999] flex flex-col items-center justify-center bg-[#020103]"
+      className="fixed inset-0 z-[9999] flex flex-col items-center justify-center bg-page"
       style={{ clipPath: 'circle(150% at 50% 50%)' }}
     >
       {/* Official Logo + loading bar */}
       <div className="flex flex-col items-center gap-5">
-        <Logo isLight={true} className="scale-125 mb-2" />
+        <Logo className="scale-125 mb-2" />
 
         {/* Loading bar */}
         <div className="h-px w-24 overflow-hidden rounded-full bg-white/10">

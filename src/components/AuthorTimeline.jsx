@@ -24,7 +24,7 @@ const milestones = [
 
 export default function AuthorTimeline() {
   return (
-    <section className="relative py-20 bg-[#03020a] overflow-hidden border-t border-purple-900/30">
+    <section className="relative py-20 bg-section overflow-hidden border-t border-purple-900/30">
       
       <div className="relative z-10 max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
         

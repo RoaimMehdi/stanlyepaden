@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { Link, NavLink, useLocation } from 'react-router-dom';
-import { Menu, X, ShoppingBag, BookOpen, ChevronRight } from 'lucide-react';
+import { Menu, X, ShoppingBag, BookOpen, ChevronRight, Sun, Moon } from 'lucide-react';
 import Logo from './Logo';
 
 // Exact Navigation Names from user request
@@ -15,6 +15,11 @@ const navLinks = [
 export default function Navbar({ cartCount = 0 }) {
   const [scrolled, setScrolled] = useState(false);
   const [menuOpen, setMenuOpen] = useState(false);
+  const [theme, setTheme] = useState(() =>
+    typeof document !== 'undefined'
+      ? document.documentElement.getAttribute('data-theme') || 'dark'
+      : 'dark'
+  );
   const location = useLocation();
 
   useEffect(() => {
@@ -28,12 +33,21 @@ export default function Navbar({ cartCount = 0 }) {
     setMenuOpen(false);
   }, [location]);
 
+  const toggleTheme = () => {
+    const next = theme === 'dark' ? 'light' : 'dark';
+    document.documentElement.setAttribute('data-theme', next);
+    try {
+      localStorage.setItem('sp-theme', next);
+    } catch (e) {}
+    setTheme(next);
+  };
+
   return (
     <>
       <header
         className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
           scrolled
-            ? 'glass-panel border-b border-purple-900/40 shadow-[0_4px_30px_rgba(135,54,247,0.15)] bg-[#020103]/90 backdrop-blur-xl py-2.5'
+            ? 'glass-panel border-b border-purple-900/40 shadow-[0_4px_30px_rgba(135,54,247,0.15)] bg-[var(--bg-page)]/90 backdrop-blur-xl py-2.5'
             : 'bg-transparent py-4'
         }`}
       >
@@ -42,7 +56,7 @@ export default function Navbar({ cartCount = 0 }) {
 
             {/* Official Logo */}
             <Link to="/" title="Stanley Paden Official Site">
-              <Logo isLight={true} />
+              <Logo />
             </Link>
 
             {/* Desktop Navigation Links */}
@@ -67,6 +81,19 @@ export default function Navbar({ cartCount = 0 }) {
 
             {/* Right: Cart + Order CTA */}
             <div className="flex items-center gap-3">
+              {/* Light / Dark toggle */}
+              <button
+                onClick={toggleTheme}
+                className="p-2.5 rounded-full glass-panel border border-white/10 hover:border-purple-400 text-gray-300 hover:text-white transition-all"
+                title={theme === 'dark' ? 'Switch to Light Mode' : 'Switch to Dark Mode'}
+                aria-label="Toggle light and dark mode"
+              >
+                {theme === 'dark' ? (
+                  <Sun className="w-4 h-4 text-amber-300" />
+                ) : (
+                  <Moon className="w-4 h-4 text-purple-400" />
+                )}
+              </button>
               <Link
                 to="/shop"
                 className="relative p-2.5 rounded-full glass-panel border border-white/10 hover:border-purple-400 text-gray-300 hover:text-white transition-all"
@@ -82,7 +109,7 @@ export default function Navbar({ cartCount = 0 }) {
 
               <Link
                 to="/shop"
-                className="hidden sm:flex items-center gap-2 px-5 py-2 rounded-full font-orbitron text-[11px] font-bold uppercase tracking-wider text-white bg-gradient-to-r from-purple-600 to-cyan-500 hover:from-cyan-400 hover:to-purple-600 shadow-[0_0_20px_rgba(135,54,247,0.4)] transition-all hover:scale-105"
+                className="btn-shine hidden sm:flex items-center gap-2 px-5 py-2 rounded-full font-orbitron text-[11px] font-bold uppercase tracking-wider text-white bg-gradient-to-r from-purple-600 to-cyan-500 hover:from-cyan-400 hover:to-purple-600 shadow-[0_0_20px_rgba(135,54,247,0.4)] transition-all hover:scale-105"
               >
                 <BookOpen className="w-3.5 h-3.5" />
                 <span>Order Now</span>
@@ -105,7 +132,7 @@ export default function Navbar({ cartCount = 0 }) {
       {/* Mobile Menu Overlay */}
       {menuOpen && (
         <div className="fixed inset-0 z-40 lg:hidden">
-          <div className="absolute inset-0 bg-[#020103]/95 backdrop-blur-2xl" onClick={() => setMenuOpen(false)} />
+          <div className="absolute inset-0 bg-[var(--bg-page)]/95 backdrop-blur-2xl" onClick={() => setMenuOpen(false)} />
           <nav className="absolute top-20 left-0 right-0 px-4 py-6 flex flex-col gap-2">
             {navLinks.map((link) => (
               <NavLink
@@ -127,7 +154,7 @@ export default function Navbar({ cartCount = 0 }) {
 
             <Link
               to="/shop"
-              className="mt-4 flex items-center justify-center gap-2 px-5 py-4 rounded-2xl font-orbitron text-sm font-bold uppercase tracking-widest text-white bg-gradient-to-r from-purple-600 to-cyan-500 shadow-[0_0_30px_rgba(135,54,247,0.5)]"
+              className="btn-shine mt-4 flex items-center justify-center gap-2 px-5 py-4 rounded-2xl font-orbitron text-sm font-bold uppercase tracking-widest text-white bg-gradient-to-r from-purple-600 to-cyan-500 shadow-[0_0_30px_rgba(135,54,247,0.5)]"
             >
               <ShoppingBag className="w-4 h-4" />
               <span>Order Now</span>

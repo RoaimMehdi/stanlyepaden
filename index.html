@@ -1,5 +1,5 @@
 <!doctype html>
-<html lang="en" class="scroll-smooth bg-[#020103] text-gray-100">
+<html lang="en" class="scroll-smooth">
 
 <head>
   <meta charset="UTF-8" />
@@ -8,9 +8,21 @@
   <meta name="description"
     content="Stanley Paden Official Author Site — Award-winning Sci-Fi author of The Box, Return from Egypt, and I Hate Saint Louis." />
   <title>Stanley Paden</title>
+  <script>
+    // Apply saved theme (or system preference) before first paint to avoid flash
+    (function () {
+      try {
+        var saved = localStorage.getItem('sp-theme');
+        var theme = saved || (window.matchMedia && window.matchMedia('(prefers-color-scheme: light)').matches ? 'light' : 'dark');
+        document.documentElement.setAttribute('data-theme', theme);
+      } catch (e) {
+        document.documentElement.setAttribute('data-theme', 'dark');
+      }
+    })();
+  </script>
 </head>
 
-<body class="bg-[#020103] text-gray-100 antialiased selection:bg-purple-600 selection:text-white">
+<body class="antialiased selection:bg-purple-600 selection:text-white">
   <div id="root"></div>
   <script type="module" src="/src/main.jsx"></script>
 </body>

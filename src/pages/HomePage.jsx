@@ -5,6 +5,7 @@ import LiaRadialWheel from '../components/LiaRadialWheel';
 import LiaAuthorSpotlight from '../components/LiaAuthorSpotlight';
 import LiaVideoReelSection from '../components/LiaVideoReelSection';
 import LiaVoiceWidget from '../components/LiaVoiceWidget';
+import LiaShowcaseSection from '../components/LiaShowcaseSection';
 import LiaFeatureScroll from '../components/LiaFeatureScroll';
 import Footer from '../components/Footer';
 import BookModal from '../components/BookModal';
@@ -15,7 +16,7 @@ export default function HomePage() {
   const [isTrailerOpen, setIsTrailerOpen] = useState(false);
 
   return (
-    <div className="min-h-screen bg-[#020103] text-gray-100 selection:bg-purple-600 selection:text-white relative overflow-x-clip">
+    <div className="min-h-screen bg-page text-gray-100 selection:bg-purple-600 selection:text-white relative overflow-x-clip">
       
       {/* Navigation Header */}
       <Navbar />
@@ -36,10 +37,13 @@ export default function HomePage() {
         {/* 4. LIA Interactive Video Side Showcase (Video Reel, Sound Waves, Captions) */}
         <LiaVideoReelSection onOpenTrailer={() => setIsTrailerOpen(true)} />
 
-        {/* 5. LIA Interactive Holo-Voice AI Assistant Widget */}
+        {/* 5. LIA AI Showcase (Marquee, CountUp stats, Live Chat Demo, Auto-Rotating Carousel) */}
+        <LiaShowcaseSection />
+
+        {/* 6. LIA Interactive Holo-Voice AI Assistant Widget */}
         <LiaVoiceWidget onOpenExcerpt={setActiveExcerptId} />
 
-        {/* 6. LIA 3D Scroll-Driven Rolling Deck Showcase */}
+        {/* 7. LIA 3D Scroll-Driven Rolling Deck Showcase */}
         <LiaFeatureScroll onOpenExcerpt={setActiveExcerptId} />
       </main>
 

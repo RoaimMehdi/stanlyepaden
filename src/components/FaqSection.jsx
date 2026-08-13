@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { HelpCircle, ChevronDown, ChevronUp, Sparkles, BookOpen, ShoppingBag, ShieldCheck } from 'lucide-react';
+import { HelpCircle, ChevronDown, Sparkles } from 'lucide-react';
 
 const faqs = [
   {
@@ -28,7 +28,7 @@ export default function FaqSection() {
   const [openIndex, setOpenIndex] = useState(0);
 
   return (
-    <section className="relative py-24 bg-[#020103] overflow-hidden border-t border-purple-900/30">
+    <section className="relative py-24 bg-page overflow-hidden border-t border-purple-900/30">
       
       {/* Background Accent Lights */}
       <div className="pointer-events-none absolute bottom-0 left-1/4 w-96 h-96 bg-purple-600/10 rounded-full blur-3xl" />
@@ -71,7 +71,7 @@ export default function FaqSection() {
             return (
               <div
                 key={idx}
-                className={`rounded-2xl transition-all border ${
+                className={`rounded-2xl transition-all duration-300 border ${
                   isOpen
                     ? 'glass-panel-glow border-purple-400/50 shadow-[0_0_25px_rgba(135,54,247,0.25)]'
                     : 'glass-panel border-white/5 hover:border-purple-500/30'
@@ -79,24 +79,32 @@ export default function FaqSection() {
               >
                 <button
                   onClick={() => setOpenIndex(isOpen ? -1 : idx)}
-                  className="w-full p-5 sm:p-6 text-left flex items-center justify-between gap-4 font-orbitron text-sm sm:text-base font-bold text-white uppercase tracking-wider"
+                  aria-expanded={isOpen}
+                  className="w-full p-5 sm:p-6 text-left flex items-center justify-between gap-4 font-orbitron text-sm sm:text-base font-bold text-white uppercase tracking-wider group"
                 >
                   <span className="flex items-center gap-3">
                     <span className="font-jura text-xs text-cyan-400">0{idx + 1}.</span>
                     {faq.q}
                   </span>
-                  {isOpen ? (
-                    <ChevronUp className="w-5 h-5 text-cyan-400 flex-shrink-0" />
-                  ) : (
-                    <ChevronDown className="w-5 h-5 text-purple-400 flex-shrink-0" />
-                  )}
+                  <ChevronDown
+                    className={`w-5 h-5 text-purple-400 flex-shrink-0 transition-transform duration-300 ${
+                      isOpen ? 'rotate-180 text-cyan-400' : 'group-hover:text-cyan-400'
+                    }`}
+                  />
                 </button>
 
-                {isOpen && (
-                  <div className="px-5 sm:px-6 pb-6 text-left font-inter text-sm text-gray-300 leading-relaxed border-t border-purple-900/30 pt-4 animate-fadeIn">
-                    {faq.a}
+                {/* Smooth expand/collapse: grid-rows 0fr -> 1fr animates height + opacity */}
+                <div
+                  className={`grid transition-all duration-300 ease-out ${
+                    isOpen ? 'grid-rows-[1fr] opacity-100' : 'grid-rows-[0fr] opacity-0'
+                  }`}
+                >
+                  <div className="overflow-hidden">
+                    <div className="px-5 sm:px-6 pb-6 text-left font-inter text-sm text-gray-300 leading-relaxed border-t border-purple-900/30 pt-4">
+                      {faq.a}
+                    </div>
                   </div>
-                )}
+                </div>
               </div>
             );
           })}

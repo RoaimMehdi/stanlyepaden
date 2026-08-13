@@ -11,7 +11,7 @@ export default function AboutPage() {
   useGlobalScrollReveal();
 
   return (
-    <div className="min-h-screen bg-[#020103] text-gray-100 selection:bg-purple-600 selection:text-white">
+    <div className="min-h-screen bg-page text-gray-100 selection:bg-purple-600 selection:text-white">
       <Navbar />
 
       {/* Page Hero */}
@@ -78,7 +78,7 @@ export default function AboutPage() {
             Dive into Stanley Paden's universe with his award-winning novels.
           </p>
           <div className="flex flex-wrap items-center justify-center gap-4">
-            <Link to="/books" className="px-6 py-3.5 rounded-full font-orbitron text-xs font-bold uppercase tracking-widest text-white bg-gradient-to-r from-purple-600 to-cyan-500 shadow-[0_0_30px_rgba(135,54,247,0.5)] hover:from-cyan-400 hover:to-purple-600 transition-all flex items-center gap-2">
+            <Link to="/books" className="btn-shine px-6 py-3.5 rounded-full font-orbitron text-xs font-bold uppercase tracking-widest text-white bg-gradient-to-r from-purple-600 to-cyan-500 shadow-[0_0_30px_rgba(135,54,247,0.5)] hover:from-cyan-400 hover:to-purple-600 transition-all flex items-center gap-2">
               <span>View All Books</span>
               <ArrowRight className="w-4 h-4" />
             </Link>

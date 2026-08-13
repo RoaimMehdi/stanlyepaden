@@ -14,7 +14,7 @@ export default function NewsletterSection() {
   };
 
   return (
-    <section className="relative py-20 bg-[#04020a] border-y border-purple-900/30 overflow-hidden">
+    <section className="relative py-20 bg-section border-y border-purple-900/30 overflow-hidden">
       
       {/* Neon Atmospheric Lines */}
       <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(ellipse_at_center,rgba(135,54,247,0.18)_0%,transparent_70%)]" />
@@ -54,13 +54,13 @@ export default function NewsletterSection() {
                     value={email}
                     onChange={(e) => setEmail(e.target.value)}
                     placeholder="Enter your email address..."
-                    className="w-full pl-11 pr-4 py-3.5 rounded-full bg-[#070512] border border-purple-800/40 focus:border-cyan-400 font-inter text-sm text-white placeholder-gray-500 outline-none transition-colors"
+                    className="w-full pl-11 pr-4 py-3.5 rounded-full bg-card border border-purple-800/40 focus:border-cyan-400 font-inter text-sm text-white placeholder-gray-500 outline-none transition-colors"
                   />
                 </div>
 
                 <button
                   type="submit"
-                  className="w-full sm:w-auto px-7 py-3.5 rounded-full font-orbitron text-xs font-bold uppercase tracking-widest text-white bg-gradient-to-r from-purple-600 via-indigo-600 to-cyan-500 hover:from-cyan-400 hover:to-purple-600 shadow-[0_0_20px_rgba(135,54,247,0.5)] transition-all flex items-center justify-center gap-2"
+                  className="btn-shine w-full sm:w-auto px-7 py-3.5 rounded-full font-orbitron text-xs font-bold uppercase tracking-widest text-white bg-gradient-to-r from-purple-600 via-indigo-600 to-cyan-500 hover:from-cyan-400 hover:to-purple-600 shadow-[0_0_20px_rgba(135,54,247,0.5)] transition-all flex items-center justify-center gap-2"
                 >
                   <span>Subscribe</span>
                   <Send className="w-4 h-4 text-cyan-200" />

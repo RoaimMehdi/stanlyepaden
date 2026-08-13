@@ -42,7 +42,7 @@ export default function LiaVideoReelSection({ onOpenTrailer }) {
   const activeClip = videoReelClips[activeClipIndex];
 
   return (
-    <section className="relative py-28 bg-[#020105] overflow-hidden border-t border-purple-900/40">
+    <section className="relative py-28 bg-section overflow-hidden border-t border-purple-900/40">
       
       {/* LIA Ambient Lighting */}
       <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(ellipse_at_50%_40%,rgba(135,54,247,0.2)_0%,transparent_60%)]" />
@@ -88,7 +88,7 @@ export default function LiaVideoReelSection({ onOpenTrailer }) {
             <div className="relative rounded-3xl overflow-hidden glass-panel-glow border-2 border-purple-400/50 shadow-[0_0_60px_rgba(135,54,247,0.4)] group">
               
               {/* Simulated Video Display Screen */}
-              <div className="relative aspect-video bg-[#05020c] flex items-center justify-center overflow-hidden">
+              <div className="dark-surface relative aspect-video bg-[#05020c] flex items-center justify-center overflow-hidden">
                 
                 {/* Background Poster Cover Image with Subtle Motion */}
                 <img
@@ -258,7 +258,7 @@ export default function LiaVideoReelSection({ onOpenTrailer }) {
             <div className="pt-2">
               <button
                 onClick={() => onOpenTrailer()}
-                className="w-full py-3.5 rounded-2xl font-orbitron text-xs font-bold uppercase tracking-widest text-white bg-gradient-to-r from-purple-600 via-indigo-600 to-cyan-500 hover:from-cyan-400 hover:to-purple-600 shadow-[0_0_25px_rgba(135,54,247,0.5)] transition-all flex items-center justify-center gap-2"
+                className="btn-shine w-full py-3.5 rounded-2xl font-orbitron text-xs font-bold uppercase tracking-widest text-white bg-gradient-to-r from-purple-600 via-indigo-600 to-cyan-500 hover:from-cyan-400 hover:to-purple-600 shadow-[0_0_25px_rgba(135,54,247,0.5)] transition-all flex items-center justify-center gap-2"
               >
                 <Film className="w-4 h-4 text-cyan-300" />
                 <span>Launch Full Screen Trailer</span>

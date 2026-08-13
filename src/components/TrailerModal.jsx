@@ -5,7 +5,7 @@ export default function TrailerModal({ onClose }) {
   const videoUrl = "https://stanleypaden.com/wp-content/uploads/2026/01/Stanley-Paden-The-Box-Video-Trailer-1.mp4";
 
   return (
-    <div className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-[#020103]/95 backdrop-blur-2xl animate-fadeIn">
+    <div className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-[var(--bg-page)]/95 backdrop-blur-2xl animate-fadeIn">
       <div className="relative w-full max-w-4xl rounded-3xl glass-panel-glow border border-purple-500/50 overflow-hidden shadow-[0_0_80px_rgba(135,54,247,0.6)]">
         
         <div className="flex items-center justify-between px-6 py-4 border-b border-purple-900/40 bg-purple-950/40">

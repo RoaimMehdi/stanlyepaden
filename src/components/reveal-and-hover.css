@@ -1,0 +1,59 @@
+/* ─── LIA Live Showcase: Scroll Reveal + Hover Effects ─── */
+
+.reveal {
+  opacity: 0;
+  transform: translateY(24px);
+  transition: opacity 0.6s ease, transform 0.6s ease;
+}
+
+.reveal--visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.reveal-child {
+  opacity: 0;
+  transform: translateY(16px);
+  transition: opacity 0.5s ease, transform 0.5s ease;
+}
+
+.reveal--visible .reveal-child {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.hover-lift {
+  transition: transform 0.25s ease, box-shadow 0.25s ease;
+}
+
+.hover-lift:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 12px 24px rgba(0, 0, 0, 0.08);
+}
+
+.hover-scale {
+  transition: transform 0.2s ease;
+}
+
+.hover-scale:hover {
+  transform: scale(1.03);
+}
+
+.hover-glow {
+  transition: box-shadow 0.25s ease;
+}
+
+.hover-glow:hover {
+  box-shadow: 0 0 0 4px rgba(142, 107, 255, 0.15);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .reveal,
+  .reveal-child,
+  .hover-lift,
+  .hover-scale,
+  .hover-glow {
+    transition: none !important;
+    transform: none !important;
+  }
+}

@@ -5,7 +5,7 @@ export default function TrailerSection({ isTrailerOpen, setIsTrailerOpen }) {
   const videoUrl = "https://stanleypaden.com/wp-content/uploads/2026/01/Stanley-Paden-The-Box-Video-Trailer-1.mp4";
 
   return (
-    <section id="trailer" className="relative py-24 bg-[#030208] overflow-hidden">
+    <section id="trailer" className="relative py-24 bg-section overflow-hidden">
       
       {/* Glow Effects */}
       <div className="pointer-events-none absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[350px] bg-purple-600/15 rounded-full blur-[120px]" />
@@ -13,7 +13,7 @@ export default function TrailerSection({ isTrailerOpen, setIsTrailerOpen }) {
       <div className="relative z-10 max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
         
         {/* Header */}
-        <div className="text-center max-w-3xl mx-auto space-y-4 mb-12">
+        <div className="text-center max-w-3xl mx-auto space-y-4 mb-12" data-reveal>
           <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full glass-panel-glow border border-purple-500/30">
             <Film className="w-4 h-4 text-purple-400" />
             <span className="font-jura text-xs font-bold uppercase tracking-widest text-purple-300">
@@ -31,7 +31,7 @@ export default function TrailerSection({ isTrailerOpen, setIsTrailerOpen }) {
         </div>
 
         {/* Video Player Display Container */}
-        <div className="relative rounded-3xl overflow-hidden glass-panel-glow border-2 border-purple-500/50 shadow-[0_0_80px_rgba(135,54,247,0.4)] aspect-video group">
+        <div className="relative rounded-3xl overflow-hidden glass-panel-glow border-2 border-purple-500/50 shadow-[0_0_80px_rgba(135,54,247,0.4)] aspect-video group" data-reveal data-delay="100">
           
           {/* Native HTML5 Video Element */}
           <video
@@ -65,7 +65,7 @@ export default function TrailerSection({ isTrailerOpen, setIsTrailerOpen }) {
 
       {/* Video Modal if triggered from Hero */}
       {isTrailerOpen && (
-        <div className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-[#020103]/95 backdrop-blur-2xl animate-fadeIn">
+        <div className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-[var(--bg-page)]/95 backdrop-blur-2xl animate-fadeIn">
           <div className="relative w-full max-w-4xl rounded-3xl glass-panel-glow border border-purple-500/50 overflow-hidden shadow-[0_0_80px_rgba(135,54,247,0.6)]">
             
             <div className="flex items-center justify-between px-6 py-4 border-b border-purple-900/40 bg-purple-950/40">

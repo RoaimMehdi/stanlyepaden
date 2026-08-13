@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 
 // SVG Vector Mark matching exact official SP interlocking monogram
 export function LogoMark({ className = "w-8 h-8", color = "#ffffff" }) {
@@ -31,8 +31,25 @@ export function LogoMark({ className = "w-8 h-8", color = "#ffffff" }) {
   );
 }
 
-export default function Logo({ className = "", isLight = true, showText = true }) {
+function getTheme() {
+  return typeof document !== 'undefined'
+    ? document.documentElement.getAttribute('data-theme') || 'dark'
+    : 'dark';
+}
+
+export default function Logo({ className = "", showText = true }) {
   const [imgError, setImgError] = useState(false);
+  const [isLight, setIsLight] = useState(() => getTheme() === 'dark');
+
+  useEffect(() => {
+    // React to theme changes made anywhere (navbar toggle)
+    const syncTheme = () => setIsLight(getTheme() === 'dark');
+    syncTheme();
+    const observer = new MutationObserver(syncTheme);
+    observer.observe(document.documentElement, { attributes: true, attributeFilter: ['data-theme'] });
+    return () => observer.disconnect();
+  }, []);
+
   const textColor = isLight ? "text-white" : "text-gray-900";
   const markColor = isLight ? "#ffffff" : "#111827";
 
@@ -42,7 +59,7 @@ export default function Logo({ className = "", isLight = true, showText = true }
       <div className="relative flex items-center justify-center flex-shrink-0">
         {!imgError ? (
           <img
-            src="/assets/stanley_paden_logo_white.png"
+            src={isLight ? "/assets/stanley_paden_logo_white.png" : "/assets/stanley_paden_logo.png"}
             alt="Stanley Paden Logo"
             className="h-8 sm:h-9 w-auto object-contain transition-transform group-hover:scale-105 duration-300 drop-shadow-[0_0_8px_rgba(255,255,255,0.25)]"
             onError={() => setImgError(true)}

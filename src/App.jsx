@@ -23,9 +23,11 @@ function ScrollToTop() {
 
 export default function App() {
   const [revealed, setRevealed] = useState(false);
+  const { pathname } = useLocation();
 
-  // Attach global scroll reveal for all [data-reveal] elements
-  useGlobalScrollReveal();
+  // Attach global scroll reveal for all [data-reveal] elements.
+  // Re-runs on route change so newly-mounted pages get observed too.
+  useGlobalScrollReveal(pathname);
 
   return (
     <div className="relative overflow-x-clip">

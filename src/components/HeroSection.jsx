@@ -56,7 +56,7 @@ export default function HeroSection({ onOpenExcerpt, onOpenTrailer }) {
 
       {/* Radial Atmospheric Lighting — exact LIA colors */}
       <div className="pointer-events-none absolute inset-0"
-        style={{ background: 'radial-gradient(circle at 50% 42%, rgba(80,33,172,0.24), transparent 34%), radial-gradient(circle at 50% 50%, rgba(11,31,102,0.24), transparent 40%), linear-gradient(180deg, #020103 0%, #000 100%)' }}
+        style={{ background: 'radial-gradient(circle at 50% 42%, rgba(80,33,172,0.24), transparent 34%), radial-gradient(circle at 50% 50%, rgba(11,31,102,0.24), transparent 40%), linear-gradient(180deg, var(--bg-page) 0%, var(--bg-hero-deep) 100%)' }}
       />
 
       <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 w-full">
@@ -99,7 +99,7 @@ export default function HeroSection({ onOpenExcerpt, onOpenTrailer }) {
             <div className="flex flex-col sm:flex-row items-stretch sm:items-center gap-3 sm:gap-4 pt-2">
               <Link
                 to="/shop"
-                className="px-6 py-3.5 rounded-full font-orbitron text-xs font-bold uppercase tracking-widest text-white bg-gradient-to-r from-purple-600 via-indigo-600 to-cyan-500 hover:from-cyan-400 hover:to-purple-600 shadow-[0_0_30px_rgba(135,54,247,0.5)] hover:shadow-[0_0_40px_rgba(0,240,255,0.8)] transition-all flex items-center justify-center gap-2 group hover:scale-105"
+                className="btn-shine px-6 py-3.5 rounded-full font-orbitron text-xs font-bold uppercase tracking-widest text-white bg-gradient-to-r from-purple-600 via-indigo-600 to-cyan-500 hover:from-cyan-400 hover:to-purple-600 shadow-[0_0_30px_rgba(135,54,247,0.5)] hover:shadow-[0_0_40px_rgba(0,240,255,0.8)] transition-all flex items-center justify-center gap-2 group hover:scale-105"
               >
                 <span>Order Now</span>
                 <ArrowRight className="w-4 h-4 text-cyan-300 group-hover:translate-x-1 transition-transform" />
@@ -155,12 +155,13 @@ export default function HeroSection({ onOpenExcerpt, onOpenTrailer }) {
               {/* Book cover — 3D tilt */}
               <div
                 ref={bookRef}
-                className="relative z-20 w-44 sm:w-56 h-64 sm:h-72 rounded-2xl overflow-hidden glass-panel-glow border-2 border-purple-400/60 shadow-[0_0_50px_rgba(135,54,247,0.6)] animate-float book-tilt"
+                className="dark-surface relative z-20 w-44 sm:w-56 h-64 sm:h-72 rounded-2xl overflow-hidden glass-panel-glow border-2 border-purple-400/60 shadow-[0_0_50px_rgba(135,54,247,0.6)] animate-float book-tilt"
                 style={{ transition: 'transform 0.15s ease-out', transformStyle: 'preserve-3d' }}
               >
                 <img
                   src="/assets/the_box_cover.png"
                   alt="Stanley Paden Author Portrait"
+                  data-reveal="img"
                   className="w-full h-full object-cover"
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-[#020103] via-transparent to-transparent opacity-80" />
@@ -187,7 +188,7 @@ export default function HeroSection({ onOpenExcerpt, onOpenTrailer }) {
                     onClick={() => onOpenTrailer()}
                     className="w-8 sm:w-10 h-8 sm:h-10 rounded-full bg-gradient-to-br from-purple-500 to-cyan-400 p-0.5 shadow-[0_0_20px_rgba(0,240,255,0.8)] hover:scale-110 transition-transform"
                   >
-                    <div className="w-full h-full bg-[#070512] rounded-full flex items-center justify-center">
+                    <div className="w-full h-full bg-card rounded-full flex items-center justify-center">
                       <Play className="w-3.5 sm:w-4 h-3.5 sm:h-4 text-cyan-300 fill-cyan-300 ml-0.5" />
                     </div>
                   </button>
@@ -225,8 +226,8 @@ export default function HeroSection({ onOpenExcerpt, onOpenTrailer }) {
 
               {/* LIA hero-rail-scroll */}
               <div className="relative overflow-hidden" style={{ height: '240px' }}>
-                <div className="pointer-events-none absolute inset-x-0 top-0 z-10 h-6" style={{ background: 'linear-gradient(to bottom, rgba(15,12,35,0.9) 0%, transparent 100%)' }} />
-                <div className="pointer-events-none absolute inset-x-0 bottom-0 z-10 h-6" style={{ background: 'linear-gradient(to top, rgba(15,12,35,0.9) 0%, transparent 100%)' }} />
+                <div className="pointer-events-none absolute inset-x-0 top-0 z-10 h-6" style={{ background: 'linear-gradient(to bottom, var(--glass-fade) 0%, transparent 100%)' }} />
+                <div className="pointer-events-none absolute inset-x-0 bottom-0 z-10 h-6" style={{ background: 'linear-gradient(to top, var(--glass-fade) 0%, transparent 100%)' }} />
 
                 <div className="hero-rail-scroll flex flex-col gap-3">
                   {[...uniqueHeroItems, ...uniqueHeroItems].map((item, idx) => (

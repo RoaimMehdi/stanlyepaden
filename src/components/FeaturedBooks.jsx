@@ -32,7 +32,7 @@ export default function FeaturedBooks({ onOpenExcerpt }) {
   }, []);
 
   return (
-    <section id="books" className="relative py-24 bg-[#020103] overflow-hidden">
+    <section id="books" className="relative py-24 bg-page overflow-hidden">
 
       {/* LIA ghost marquee behind section */}
       <div className="pointer-events-none absolute top-8 left-0 right-0 overflow-hidden opacity-20 select-none">
@@ -99,7 +99,7 @@ export default function FeaturedBooks({ onOpenExcerpt }) {
                   {/* Book cover */}
                   <div className="md:col-span-5 flex justify-center">
                     <div className="relative w-48 sm:w-56 h-72 sm:h-80 rounded-2xl overflow-hidden shadow-[0_15px_40px_rgba(0,0,0,0.8)] border border-white/10 group-hover:scale-105 transition-transform duration-500">
-                      <img src={book.cover} alt={book.title} className="w-full h-full object-cover" />
+                      <img src={book.cover} alt={book.title} data-reveal="img" className="w-full h-full object-cover" />
                       <div className="absolute inset-0 bg-gradient-to-t from-[#020103]/80 via-transparent to-transparent opacity-60" />
                     </div>
                   </div>
@@ -130,7 +130,7 @@ export default function FeaturedBooks({ onOpenExcerpt }) {
                     <div className="pt-4 flex flex-wrap items-center gap-3">
                       <button
                         onClick={() => onOpenExcerpt(book.id)}
-                        className={`px-5 py-2.5 rounded-full font-orbitron text-xs font-bold uppercase tracking-wider text-white transition-all flex items-center gap-2 ${
+                        className={`btn-shine px-5 py-2.5 rounded-full font-orbitron text-xs font-bold uppercase tracking-wider text-white transition-all flex items-center gap-2 ${
                           isPurple
                             ? 'bg-gradient-to-r from-purple-600 to-indigo-600 hover:from-indigo-500 hover:to-purple-500 shadow-[0_0_20px_rgba(135,54,247,0.4)]'
                             : 'bg-gradient-to-r from-cyan-600 to-teal-600 hover:from-teal-500 hover:to-cyan-500 shadow-[0_0_20px_rgba(0,240,255,0.4)]'

@@ -11,7 +11,7 @@ export default function BooksPage() {
   const [activeExcerptId, setActiveExcerptId] = useState(null);
 
   return (
-    <div className="min-h-screen bg-[#020103] text-gray-100 selection:bg-purple-600 selection:text-white">
+    <div className="min-h-screen bg-page text-gray-100 selection:bg-purple-600 selection:text-white">
       <Navbar />
 
       {/* Page Header */}
@@ -37,7 +37,7 @@ export default function BooksPage() {
             Delve into high-stakes techno-thrillers exploring synthetic consciousness, alien bio-code, and the terrifying realities of human immortality.
           </p>
           <div className="mt-6 flex items-center justify-center gap-4" data-reveal data-delay="200">
-            <Link to="/shop" className="px-6 py-3 rounded-full font-orbitron text-xs font-bold uppercase tracking-widest text-white bg-gradient-to-r from-purple-600 to-cyan-500 shadow-[0_0_20px_rgba(135,54,247,0.4)] hover:from-cyan-400 hover:to-purple-600 transition-all">
+            <Link to="/shop" className="btn-shine px-6 py-3 rounded-full font-orbitron text-xs font-bold uppercase tracking-widest text-white bg-gradient-to-r from-purple-600 to-cyan-500 shadow-[0_0_20px_rgba(135,54,247,0.4)] hover:from-cyan-400 hover:to-purple-600 transition-all">
               Buy Now →
             </Link>
           </div>

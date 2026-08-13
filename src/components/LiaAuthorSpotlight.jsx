@@ -4,7 +4,7 @@ import { Link } from 'react-router-dom';
 
 export default function LiaAuthorSpotlight() {
   return (
-    <section className="relative py-24 bg-[#020104] overflow-hidden border-t border-purple-900/40">
+    <section className="relative py-24 bg-section overflow-hidden border-t border-purple-900/40">
       
       {/* Dynamic LIA Background Lighting */}
       <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(ellipse_at_30%_50%,rgba(135,54,247,0.18)_0%,transparent_60%)]" />
@@ -56,6 +56,7 @@ export default function LiaAuthorSpotlight() {
                 <img
                   src="/assets/author_paden_official.jpg"
                   alt="Stanley Paden Official Portrait"
+                  data-reveal="img"
                   className="w-full aspect-[4/5] object-cover object-center group-hover:scale-105 transition-transform duration-700"
                   onError={(e) => {
                     e.target.onerror = null;
@@ -151,7 +152,7 @@ export default function LiaAuthorSpotlight() {
             <div className="flex flex-wrap items-center gap-4 pt-2">
               <Link
                 to="/about"
-                className="px-6 py-3.5 rounded-full font-orbitron text-xs font-bold uppercase tracking-widest text-white bg-gradient-to-r from-purple-600 to-cyan-500 hover:from-cyan-400 hover:to-purple-600 shadow-[0_0_25px_rgba(135,54,247,0.5)] transition-all flex items-center gap-2 hover:scale-105"
+                className="btn-shine px-6 py-3.5 rounded-full font-orbitron text-xs font-bold uppercase tracking-widest text-white bg-gradient-to-r from-purple-600 to-cyan-500 hover:from-cyan-400 hover:to-purple-600 shadow-[0_0_25px_rgba(135,54,247,0.5)] transition-all flex items-center gap-2 hover:scale-105"
               >
                 <span>Read Full Biography</span>
                 <ArrowRight className="w-4 h-4" />

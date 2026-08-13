@@ -17,7 +17,7 @@ export default function Footer() {
   const scrollToTop = () => window.scrollTo({ top: 0, behavior: 'smooth' });
 
   return (
-    <footer className="relative bg-[#020103] border-t border-purple-900/40 pt-16 pb-8 overflow-hidden">
+    <footer className="relative bg-page border-t border-purple-900/40 pt-16 pb-8 overflow-hidden">
       <div className="pointer-events-none absolute bottom-0 right-0 w-64 h-64 bg-purple-600/8 rounded-full blur-3xl" />
 
       <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -26,7 +26,7 @@ export default function Footer() {
           {/* Official Brand Logo */}
           <div className="md:col-span-5 space-y-4 text-left">
             <Link to="/" className="inline-block" title="Stanley Paden Official Site">
-              <Logo isLight={true} />
+              <Logo />
             </Link>
 
             <p className="font-inter text-xs text-gray-400 leading-relaxed max-w-sm">
