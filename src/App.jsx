@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { Routes, Route, useLocation } from 'react-router-dom';
 import CustomCursor from './components/CustomCursor';
 import PageReveal from './components/PageReveal';
+import PostLoaderAnimation from './components/PostLoaderAnimation';
 import { useGlobalScrollReveal } from './hooks/useScrollReveal';
 
 // Pages matching exact navigation structure requested
@@ -26,7 +27,6 @@ export default function App() {
   const { pathname } = useLocation();
 
   // Attach global scroll reveal for all [data-reveal] elements.
-  // Re-runs on route change so newly-mounted pages get observed too.
   useGlobalScrollReveal(pathname);
 
   return (
@@ -34,22 +34,25 @@ export default function App() {
       {/* Custom glow cursor */}
       <CustomCursor />
 
-      {/* LIA-style circle entrance reveal — only on first load */}
+      {/* Sci-Fi Preloader Loading Screen — only on first load */}
       {!revealed && <PageReveal onComplete={() => setRevealed(true)} />}
+
+      {/* Post-Loader Burst & Scan Line Animation — triggers RIGHT AFTER loading screen finishes! */}
+      {revealed && <PostLoaderAnimation />}
 
       {/* Scroll restoration on route change */}
       <ScrollToTop />
 
       {/* Routes */}
       <Routes>
-        <Route path="/"        element={<HomePage />} />
-        <Route path="/about"   element={<AboutPage />} />
-        <Route path="/shop"    element={<ShopPageWrapper />} />
+        <Route path="/" element={<HomePage />} />
+        <Route path="/about" element={<AboutPage />} />
+        <Route path="/shop" element={<ShopPageWrapper />} />
         <Route path="/podcast" element={<PodcastPage />} />
-        <Route path="/blog"    element={<BlogPage />} />
-        <Route path="/books"   element={<BooksPage />} />
+        <Route path="/blog" element={<BlogPage />} />
+        <Route path="/books" element={<BooksPage />} />
         {/* Fallback */}
-        <Route path="*"        element={<HomePage />} />
+        <Route path="*" element={<HomePage />} />
       </Routes>
     </div>
   );

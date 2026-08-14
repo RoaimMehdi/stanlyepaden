@@ -6,10 +6,10 @@ import HeroCanvas from './HeroCanvas';
 const uniqueHeroItems = [
   { title: 'THE BOX', desc: 'Confront the Unseen Side of Immortality', id: 'the-box' },
   { title: 'RETURN FROM EGYPT', desc: 'Ancient Artifacts & Cybernetic Destiny', id: 'return-from-egypt' },
+  { title: 'SUN GOD\'S HEIR TRILOGY', desc: 'Reincarnation & 17th Century High Seas', id: 'sun-gods-heir' },
   { title: 'I HATE SAINT LOUIS', desc: 'Dark Cyber Noir Sci-Fi Thriller', id: 'i-hate-saint-louis' },
-  { title: 'SYNTHETIC CONSCIOUSNESS', desc: 'Quantum Archival Beyond Mortality', id: 'lore' },
-  { title: 'TACHYON SLIPSTREAM', desc: 'Warp-Speed Relativistic Time Dilation', id: 'lore' },
-  { title: 'STARK CITY NEON', desc: 'Rain-Slicked Cyberpunk Megacity', id: 'lore' },
+  { title: 'SYNTHETIC CONSCIOUSNESS', desc: 'Quantum Archival Beyond Mortality', id: 'synthetic-consciousness' },
+  { title: 'SEARCH FOR SOLOMON', desc: 'Ancient Crypts & Orbital AI', id: 'search-for-solomon' },
 ];
 
 export default function HeroSection({ onOpenExcerpt, onOpenTrailer }) {
@@ -17,12 +17,14 @@ export default function HeroSection({ onOpenExcerpt, onOpenTrailer }) {
   const bookRef = useRef(null);
   const [textVisible, setTextVisible] = useState(false);
   const [orbVisible, setOrbVisible] = useState(false);
+  const [railVisible, setRailVisible] = useState(false);
 
-  // LIA-style staggered entrance
+  // Staggered entrance timeline right after preloader finishes
   useEffect(() => {
-    const t1 = setTimeout(() => setTextVisible(true), 300);
-    const t2 = setTimeout(() => setOrbVisible(true), 550);
-    return () => { clearTimeout(t1); clearTimeout(t2); };
+    const t1 = setTimeout(() => setTextVisible(true), 250);
+    const t2 = setTimeout(() => setOrbVisible(true), 450);
+    const t3 = setTimeout(() => setRailVisible(true), 650);
+    return () => { clearTimeout(t1); clearTimeout(t2); clearTimeout(t3); };
   }, []);
 
   // 3D mouse tilt on book cover
@@ -33,12 +35,12 @@ export default function HeroSection({ onOpenExcerpt, onOpenTrailer }) {
       const rect = el.getBoundingClientRect();
       const cx = rect.left + rect.width / 2;
       const cy = rect.top + rect.height / 2;
-      const rx = ((e.clientY - cy) / rect.height) * -12;
-      const ry = ((e.clientX - cx) / rect.width) * 12;
-      el.style.transform = `perspective(800px) rotateX(${rx}deg) rotateY(${ry}deg)`;
+      const rx = ((e.clientY - cy) / rect.height) * -14;
+      const ry = ((e.clientX - cx) / rect.width) * 14;
+      el.style.transform = `perspective(900px) rotateX(${rx}deg) rotateY(${ry}deg) scale(1.03)`;
     };
     const handleLeave = () => {
-      el.style.transform = 'perspective(800px) rotateX(0deg) rotateY(0deg)';
+      el.style.transform = 'perspective(900px) rotateX(0deg) rotateY(0deg) scale(1)';
     };
     el.addEventListener('mousemove', handleMove);
     el.addEventListener('mouseleave', handleLeave);
@@ -54,25 +56,34 @@ export default function HeroSection({ onOpenExcerpt, onOpenTrailer }) {
       {/* Particle Matrix Canvas */}
       <HeroCanvas />
 
-      {/* Radial Atmospheric Lighting — exact LIA colors */}
+      {/* Post-Loading Ambient Radial Lighting */}
       <div className="pointer-events-none absolute inset-0"
-        style={{ background: 'radial-gradient(circle at 50% 42%, rgba(80,33,172,0.24), transparent 34%), radial-gradient(circle at 50% 50%, rgba(11,31,102,0.24), transparent 40%), linear-gradient(180deg, var(--bg-page) 0%, var(--bg-hero-deep) 100%)' }}
+        style={{ background: 'radial-gradient(circle at 50% 42%, rgba(80,33,172,0.28), transparent 40%), radial-gradient(circle at 50% 50%, rgba(11,31,102,0.26), transparent 45%), linear-gradient(180deg, var(--bg-page) 0%, var(--bg-hero-deep) 100%)' }}
+      />
+
+      {/* Cyber laser grid overlay */}
+      <div
+        className="pointer-events-none absolute inset-0 opacity-[0.07]"
+        style={{
+          backgroundImage: 'linear-gradient(to right, #8736f7 1px, transparent 1px), linear-gradient(to bottom, #8736f7 1px, transparent 1px)',
+          backgroundSize: '48px 48px'
+        }}
       />
 
       <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 w-full">
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 items-center">
 
-          {/* Left: Headline — LIA text entrance */}
+          {/* Left: Headline — 3D Staggered entrance */}
           <div
             className="lg:col-span-5 text-left space-y-4 sm:space-y-6"
             style={{
               opacity: textVisible ? 1 : 0,
-              transform: textVisible ? 'translateY(0)' : 'translateY(28px)',
-              transition: 'opacity 0.8s cubic-bezier(0.16,1,0.3,1), transform 0.8s cubic-bezier(0.16,1,0.3,1)',
+              transform: textVisible ? 'translateY(0) scale(1)' : 'translateY(36px) scale(0.96)',
+              transition: 'opacity 0.9s cubic-bezier(0.16,1,0.3,1), transform 0.9s cubic-bezier(0.16,1,0.3,1)',
             }}
           >
-            {/* Live badge */}
-            <div className="inline-flex items-center gap-2 px-3 sm:px-3.5 py-1 sm:py-1.5 rounded-full glass-panel-glow border border-purple-500/40">
+            {/* Live broadcast badge */}
+            <div className="inline-flex items-center gap-2 px-3 sm:px-3.5 py-1 sm:py-1.5 rounded-full glass-panel-glow border border-purple-500/40 shadow-[0_0_15px_rgba(135,54,247,0.4)]">
               <span className="w-2 h-2 rounded-full bg-cyan-400 animate-ping" />
               <span className="w-2 h-2 rounded-full bg-cyan-400 -ml-3.5" />
               <span className="font-jura text-[10px] sm:text-xs font-semibold uppercase tracking-widest text-cyan-300">
@@ -85,17 +96,17 @@ export default function HeroSection({ onOpenExcerpt, onOpenTrailer }) {
             </h1>
 
             <p className="font-outfit text-base sm:text-xl font-light tracking-wide text-purple-200/90 leading-snug">
-              Author Sci-Fi Author of{' '}
+              Award-Winning Sci-Fi Author of{' '}
               <span className="text-cyan-300 font-semibold">The Box</span>,{' '}
-              <span className="text-cyan-300 font-semibold">Return From Egypt</span> &{' '}
-              <span className="text-cyan-300 font-semibold">I Hate Saint Louis</span>
+              <span className="text-cyan-300 font-semibold">Return From Egypt</span> &amp;{' '}
+              <span className="text-cyan-300 font-semibold">The Sun God's Heir</span>
             </p>
 
             <p className="font-inter text-xs sm:text-sm text-gray-400 leading-relaxed max-w-lg">
               Step into a gripping exploration of the future of life itself. Stanley Paden challenges readers to confront the terrifying consequences of defying death, ancient mysteries, and cybernetic destiny.
             </p>
 
-            {/* CTAs */}
+            {/* Action Buttons */}
             <div className="flex flex-col sm:flex-row items-stretch sm:items-center gap-3 sm:gap-4 pt-2">
               <Link
                 to="/shop"
@@ -130,18 +141,18 @@ export default function HeroSection({ onOpenExcerpt, onOpenTrailer }) {
             </div>
           </div>
 
-          {/* Center: LIA Orb with sonar rings + book cover */}
+          {/* Center: Glowing 3D Book Cover with Sonar Rings */}
           <div
             className="lg:col-span-4 flex flex-col items-center justify-center relative my-6 lg:my-0"
             style={{
               opacity: orbVisible ? 1 : 0,
-              transform: orbVisible ? 'scale(1)' : 'scale(0.95)',
-              transition: 'opacity 0.9s cubic-bezier(0.16,1,0.3,1), transform 0.9s cubic-bezier(0.16,1,0.3,1)',
+              transform: orbVisible ? 'scale(1) translateY(0)' : 'scale(0.9) translateY(20px)',
+              transition: 'opacity 1s cubic-bezier(0.16,1,0.3,1), transform 1s cubic-bezier(0.16,1,0.3,1)',
             }}
           >
             <div className="relative w-64 sm:w-80 h-64 sm:h-80 flex items-center justify-center">
 
-              {/* LIA Sonar rings */}
+              {/* Sonar rings */}
               <div className="absolute inset-0 flex items-center justify-center pointer-events-none">
                 <div className="absolute w-40 sm:w-48 h-40 sm:h-48 rounded-full border border-purple-500/20 animate-sonar" />
                 <div className="absolute w-40 sm:w-48 h-40 sm:h-48 rounded-full border border-cyan-500/15 animate-sonar-delay" />
@@ -155,13 +166,13 @@ export default function HeroSection({ onOpenExcerpt, onOpenTrailer }) {
               {/* Book cover — 3D tilt */}
               <div
                 ref={bookRef}
-                className="dark-surface relative z-20 w-44 sm:w-56 h-64 sm:h-72 rounded-2xl overflow-hidden glass-panel-glow border-2 border-purple-400/60 shadow-[0_0_50px_rgba(135,54,247,0.6)] animate-float book-tilt"
+                className="dark-surface relative z-20 w-44 sm:w-56 h-64 sm:h-72 rounded-2xl overflow-hidden glass-panel-glow border-2 border-purple-400/60 shadow-[0_0_60px_rgba(135,54,247,0.7)] animate-float book-tilt cursor-pointer"
+                onClick={() => onOpenExcerpt('the-box')}
                 style={{ transition: 'transform 0.15s ease-out', transformStyle: 'preserve-3d' }}
               >
                 <img
                   src="/assets/the_box_cover.png"
-                  alt="Stanley Paden Author Portrait"
-                  data-reveal="img"
+                  alt="The Box Book Cover"
                   className="w-full h-full object-cover"
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-[#020103] via-transparent to-transparent opacity-80" />
@@ -169,23 +180,23 @@ export default function HeroSection({ onOpenExcerpt, onOpenTrailer }) {
                 {/* Badge */}
                 <div className="absolute top-2 sm:top-3 left-2 sm:left-3 px-2 sm:px-2.5 py-0.5 sm:py-1 rounded-md bg-purple-900/80 backdrop-blur-md border border-purple-400/50 flex items-center gap-1.5">
                   <Radio className="w-3 h-3 text-cyan-400 animate-pulse" />
-                  <span className="font-jura text-[9px] sm:text-[10px] font-bold text-white uppercase tracking-wider">Verified Author</span>
+                  <span className="font-jura text-[9px] sm:text-[10px] font-bold text-white uppercase tracking-wider">Featured Novel</span>
                 </div>
 
-                {/* LIA Waveform bars + play button */}
+                {/* Waveform bars + play button */}
                 <div className="absolute bottom-3 sm:bottom-4 left-3 sm:left-4 right-3 sm:right-4 flex items-center justify-between">
                   <div className="flex flex-col text-left">
-                    <span className="font-orbitron text-[10px] sm:text-xs font-bold text-white">STANLEY PADEN</span>
-                    <span className="font-jura text-[9px] sm:text-[10px] text-cyan-300">Sci-Fi Novelist &amp; Speculative Futurist</span>
+                    <span className="font-orbitron text-[10px] sm:text-xs font-bold text-white">THE BOX</span>
+                    <span className="font-jura text-[9px] sm:text-[10px] text-cyan-300">Stanley Paden</span>
                   </div>
-                  {/* LIA Waveform bars */}
+                  {/* Waveform bars */}
                   <div className="flex items-center gap-[2px] sm:gap-[3px] mr-1 sm:mr-2">
                     {[...Array(7)].map((_, i) => (
                       <span key={i} className="wave-bar bg-cyan-400" />
                     ))}
                   </div>
                   <button
-                    onClick={() => onOpenTrailer()}
+                    onClick={(e) => { e.stopPropagation(); onOpenTrailer(); }}
                     className="w-8 sm:w-10 h-8 sm:h-10 rounded-full bg-gradient-to-br from-purple-500 to-cyan-400 p-0.5 shadow-[0_0_20px_rgba(0,240,255,0.8)] hover:scale-110 transition-transform"
                   >
                     <div className="w-full h-full bg-card rounded-full flex items-center justify-center">
@@ -195,27 +206,24 @@ export default function HeroSection({ onOpenExcerpt, onOpenTrailer }) {
                 </div>
               </div>
 
-              {/* HUD floating tags */}
-              <div className="absolute -top-2 -right-2 sm:-right-4 px-2.5 sm:px-3 py-1 sm:py-1.5 rounded-lg glass-panel-cyan text-[9px] sm:text-[11px] font-jura text-cyan-300 flex items-center gap-1.5 shadow-[0_0_15px_rgba(0,240,255,0.4)]">
-                <Sparkles className="w-3 h-3 text-cyan-400" />
-                <span>Award Winner</span>
-              </div>
+              {/* Floating HUD tags */}
+
               <div className="absolute -bottom-3 -left-2 sm:-left-4 px-2.5 sm:px-3 py-1 sm:py-1.5 rounded-lg glass-panel-glow text-[9px] sm:text-[11px] font-jura text-purple-300 flex items-center gap-1.5 shadow-[0_0_15px_rgba(135,54,247,0.4)]">
                 <ShieldAlert className="w-3 h-3 text-purple-400" />
-                <span>6+ Masterworks</span>
+                <span>Immortality Protocol</span>
               </div>
             </div>
           </div>
 
-          {/* Right: LIA auto-scroll rail */}
+          {/* Right: Lore Index Auto-Scroll Rail */}
           <div className="lg:col-span-3 text-left"
             style={{
-              opacity: textVisible ? 1 : 0,
-              transform: textVisible ? 'translateX(0)' : 'translateX(24px)',
-              transition: 'opacity 0.8s 0.2s cubic-bezier(0.16,1,0.3,1), transform 0.8s 0.2s cubic-bezier(0.16,1,0.3,1)',
+              opacity: railVisible ? 1 : 0,
+              transform: railVisible ? 'translateX(0)' : 'translateX(30px)',
+              transition: 'opacity 0.9s cubic-bezier(0.16,1,0.3,1), transform 0.9s cubic-bezier(0.16,1,0.3,1)',
             }}
           >
-            <div className="glass-panel p-4 sm:p-5 rounded-2xl border border-purple-500/20 space-y-4">
+            <div className="glass-panel p-4 sm:p-5 rounded-2xl border border-purple-500/20 space-y-4 shadow-[0_0_30px_rgba(135,54,247,0.2)]">
               <div className="flex items-center justify-between pb-3 border-b border-purple-900/40">
                 <h3 className="font-orbitron text-xs font-bold uppercase tracking-wider text-purple-300 flex items-center gap-2">
                   <Radio className="w-3.5 h-3.5 text-cyan-400 animate-pulse" />
@@ -224,7 +232,7 @@ export default function HeroSection({ onOpenExcerpt, onOpenTrailer }) {
                 <span className="font-jura text-[10px] text-gray-400">Live Index</span>
               </div>
 
-              {/* LIA hero-rail-scroll */}
+              {/* hero-rail-scroll */}
               <div className="relative overflow-hidden" style={{ height: '240px' }}>
                 <div className="pointer-events-none absolute inset-x-0 top-0 z-10 h-6" style={{ background: 'linear-gradient(to bottom, var(--glass-fade) 0%, transparent 100%)' }} />
                 <div className="pointer-events-none absolute inset-x-0 bottom-0 z-10 h-6" style={{ background: 'linear-gradient(to top, var(--glass-fade) 0%, transparent 100%)' }} />
@@ -249,7 +257,7 @@ export default function HeroSection({ onOpenExcerpt, onOpenTrailer }) {
 
               <button
                 onClick={() => onOpenTrailer()}
-                className="w-full py-2.5 rounded-xl glass-panel-glow border border-purple-400/40 text-cyan-300 font-jura text-xs font-bold uppercase tracking-widest hover:bg-purple-600/30 transition-all flex items-center justify-center gap-2"
+                className="w-full py-2.5 rounded-xl glass-panel-glow border border-purple-400/40 text-cyan-300 font-jura text-xs font-bold uppercase tracking-widest hover:bg-purple-600/30 transition-all flex items-center justify-center gap-2 hover:scale-[1.02]"
               >
                 <Play className="w-3.5 h-3.5 fill-cyan-300" />
                 <span>Watch Trailer</span>

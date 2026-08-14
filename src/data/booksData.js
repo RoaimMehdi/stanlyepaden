@@ -3,20 +3,23 @@ export const booksData = [
     id: "the-box",
     title: "THE BOX",
     subtitle: "Confront the Unseen Side of Immortality",
-    tagline: "Award-Winning Sci-Fi Thriller",
+    tagline: "Award-Winning Dystopian Sci-Fi Thriller",
+    series: "The Zero-State Chronicles",
     year: "2026",
     cover: "/assets/the_box_cover.png",
     accentColor: "purple",
     badge: "Bestseller & Award Winner",
     rating: 4.9,
     reviewsCount: 3420,
+    price: 24.99,
+    formats: ["Hardcover", "Paperback", "Kindle E-Book", "Audible Audio"],
     description:
       "Prepare for a gripping exploration into the future of life itself. Stanley Paden's The Box challenges readers to consider the profound and often terrifying consequences of defying death, forcing a new perspective on humanity's ultimate desires and technological advancements.",
     synopsis:
       "When a covert research facility unlocks the quantum containment box—a device capable of preserving human consciousness beyond biological mortality—humanity believes it has conquered death. Agent Mark Vance must decide whether preserving eternal life is worth surrendering what makes us human.",
     excerpt: `CHAPTER 1: THE ZERO-STATE PROTOCOL
 
-The glass in Sector 7 didn't shimmer; it absorbed light. 
+The glass in Sector 7 didn't shimmer; it absorbed light.
 
 Mark Vance pressed his palm against the bio-verification panel. The blue laser scanned through blood vessels, confirming a pulse rate of fifty-eight beats per minute. Normal for a man about to gaze into eternity.
 
@@ -27,7 +30,7 @@ Dr. Aris Thorne didn't look up from her holographic interface. "The field hasn't
       amazon: "https://amazon.com",
       kindle: "https://amazon.com/kindle",
       audible: "https://audible.com",
-      hardcover: "https://stanleypaden.com",
+      hardcover: "https://stanleypaden.com/shop/",
     },
     audioSample: "https://stanleypaden.com/wp-content/uploads/2026/01/Stanley-Paden-The-Box-Video-Trailer-1.mp4",
     features: [
@@ -41,12 +44,15 @@ Dr. Aris Thorne didn't look up from her holographic interface. "The field hasn't
     title: "RETURN FROM EGYPT",
     subtitle: "Ancient Artifacts Meet Cybernetic Destiny",
     tagline: "Epic Cyber-Archeological Mystery",
+    series: "Ancient Quantum Odyssey",
     year: "2025",
     cover: "/assets/return_egypt_cover.png",
     accentColor: "cyan",
     badge: "Sci-Fi Honor Award",
     rating: 4.8,
     reviewsCount: 2190,
+    price: 22.99,
+    formats: ["Hardcover", "Paperback", "Kindle E-Book", "Audible Audio"],
     description:
       "Unearthing ancient monoliths deep under the Giza plateau that pulse with alien bio-code, Stanley Paden weaves a breathtaking narrative bridging ancient civilization and orbital cybernetics.",
     synopsis:
@@ -62,7 +68,7 @@ Dr. Layla Kincaid adjusted her augmented optics. Thirty meters below the bedrock
       amazon: "https://amazon.com",
       kindle: "https://amazon.com/kindle",
       audible: "https://audible.com",
-      hardcover: "https://stanleypaden.com",
+      hardcover: "https://stanleypaden.com/shop/",
     },
     audioSample: "https://stanleypaden.com/wp-content/uploads/2026/01/Stanley-Paden-The-Box-Video-Trailer-1.mp4",
     features: [
@@ -72,16 +78,59 @@ Dr. Layla Kincaid adjusted her augmented optics. Thirty meters below the bedrock
     ],
   },
   {
+    id: "sun-gods-heir",
+    title: "THE SUN GOD'S HEIR",
+    subtitle: "Reincarnation, Ancient Egypt & 17th Century High-Seas",
+    tagline: "Award-Winning Metaphysical Epic Trilogy",
+    series: "The Sun God's Heir Trilogy · Book 1",
+    year: "2025",
+    cover: "/assets/return_egypt_cover.png",
+    accentColor: "amber",
+    badge: "Metaphysical Award Winner",
+    rating: 4.9,
+    reviewsCount: 2850,
+    price: 26.99,
+    formats: ["Hardcover", "Paperback", "Kindle E-Book"],
+    description:
+      "A rapier-sharp metaphysical adventure blending 17th-century French swashbuckling high-seas intrigue with ancient Egyptian soul codices. Follow René Gilbert as he unlocks past lives to save mankind.",
+    synopsis:
+      "When the ancient energies set in motion under the Pharaohs re-emerge during the 17th century naval wars, French swordsman René Gilbert discovers his soul is bound to an ancient Egyptian guardian. To defeat a shadowy cabal, he must master both the rapier and memories predating history.",
+    excerpt: `CHAPTER 1: THE WARP AND WEAVE OF TIME
+
+The salt spray off the coast of Marseille stung René's eyes, but he did not blink.
+
+In his right hand, the silver hilt of his rapier caught the golden twilight. Beneath his collar, the scar—shaped like an ancient Egyptian ankh—pulsed with familiar, impossible warmth.
+
+"They're closing in, René!" shouting Captain Valois from the quarterdeck.
+
+René smiled grimly into the wind. "Let them come. We have waited three thousand years for this fight."`,
+    buyLinks: {
+      amazon: "https://amazon.com",
+      kindle: "https://amazon.com/kindle",
+      audible: "https://audible.com",
+      hardcover: "https://stanleypaden.com/shop/",
+    },
+    audioSample: "https://stanleypaden.com/wp-content/uploads/2026/01/Stanley-Paden-The-Box-Video-Trailer-1.mp4",
+    features: [
+      "Epic fusion of historical high-seas fiction and Egyptian lore",
+      "Deeply researched 17th-century naval and rapier combat",
+      "Philosophical exploration of reincarnation and fate",
+    ],
+  },
+  {
     id: "i-hate-saint-louis",
     title: "I HATE SAINT LOUIS",
     subtitle: "Dark Cyber-Noir Dystopian Thriller",
     tagline: "New Release Sci-Fi Crime Noir",
+    series: "Stark City Megacity Files",
     year: "2026",
     cover: "/assets/i_hate_stl_cover.png",
     accentColor: "red",
-    badge: "New Release",
+    badge: "Official Shop Featured",
     rating: 4.7,
     reviewsCount: 1480,
+    price: 19.99,
+    formats: ["Hardcover", "Paperback", "Kindle E-Book"],
     description:
       "A raw, relentless trip through rain-soaked megacity alleys, corporate syndicates, and rogue synth-operatives. In dystopian Saint Louis, memory is currency and survival has a price.",
     synopsis:
@@ -113,12 +162,15 @@ Mercer didn't turn around. "Traffic on the elevated loop. And your contact didn'
     title: "SYNTHETIC CONSCIOUSNESS",
     subtitle: "Quantum Archival & The Soul Codex",
     tagline: "High-Concept Quantum Sci-Fi",
+    series: "Quantum Archival Series",
     year: "2026",
     cover: "/assets/synthetic_consciousness_cover.png",
     accentColor: "purple",
     badge: "Editor's Choice",
     rating: 4.9,
     reviewsCount: 1850,
+    price: 21.99,
+    formats: ["Hardcover", "Paperback", "Kindle E-Book"],
     description:
       "Exploring the frontier where human neurology meets quantum computing, synthetic archival, and the terrifying dilemma of uploaded identity.",
     synopsis:
@@ -132,7 +184,7 @@ Inside the glass chamber, a single photon lattice pulsed in perfect synchronizat
       amazon: "https://amazon.com",
       kindle: "https://amazon.com/kindle",
       audible: "https://audible.com",
-      hardcover: "https://stanleypaden.com",
+      hardcover: "https://stanleypaden.com/shop/",
     },
     audioSample: "https://stanleypaden.com/wp-content/uploads/2026/01/Stanley-Paden-The-Box-Video-Trailer-1.mp4",
     features: [
@@ -142,69 +194,41 @@ Inside the glass chamber, a single photon lattice pulsed in perfect synchronizat
     ],
   },
   {
-    id: "tachyon-slipstream",
-    title: "TACHYON SLIPSTREAM",
-    subtitle: "Relativistic Dilation & Deep Space",
-    tagline: "Epic Relativistic Space Opera",
+    id: "search-for-solomon",
+    title: "SEARCH FOR SOLOMON",
+    subtitle: "Ancient Crypts & Orbital Artificial Intelligence",
+    tagline: "Historical Cyber-Mystery Thriller",
+    series: "Ancient Quantum Odyssey · Book 2",
     year: "2025",
-    cover: "/assets/tachyon_slipstream_cover.png",
-    accentColor: "cyan",
-    badge: "Readers Choice",
-    rating: 4.8,
-    reviewsCount: 1620,
-    description:
-      "A fast-paced warp-speed odyssey through time dilation, interstellar jump gates, and humanity's fight for survival across distant star systems.",
-    synopsis:
-      "Commander Kaelen Vance navigates the tachyon slipstream jump gate, knowing that every minute spent in warp dilates time by decades back on Earth.",
-    excerpt: `CHAPTER 1: WARP INITIATION
-
-The chronometer counted down to zero state.
-
-Outside the bridge viewport, distant nebulae stretched into streaks of blinding cyan light. The slipstream drive engaged, bending space-time around the hull.`,
-    buyLinks: {
-      amazon: "https://amazon.com",
-      kindle: "https://amazon.com/kindle",
-      audible: "https://audible.com",
-      hardcover: "https://stanleypaden.com",
-    },
-    audioSample: "https://stanleypaden.com/wp-content/uploads/2026/01/Stanley-Paden-The-Box-Video-Trailer-1.mp4",
-    features: [
-      "Relativistic space opera with high technical detail",
-      "Stunning interstellar jump gate action sequences",
-      "Emotional time-dilation character dynamics",
-    ],
-  },
-  {
-    id: "stark-city-neon",
-    title: "STARK CITY NEON",
-    subtitle: "Chronicles of the Cyber-Noir Metropolis",
-    tagline: "Stark City Megacity Saga",
-    year: "2026",
     cover: "/assets/stark_city_neon_cover.png",
-    accentColor: "red",
-    badge: "Fan Favorite",
-    rating: 4.9,
-    reviewsCount: 1980,
+    accentColor: "cyan",
+    badge: "New Release",
+    rating: 4.8,
+    reviewsCount: 1740,
+    price: 23.99,
+    formats: ["Hardcover", "Paperback", "Kindle E-Book"],
     description:
-      "Step into Stark City MO's futuristic cyber-noir underbelly. A high-octane collection of interconnected stories exploring artificial life and neon-lit espionage.",
+      "Investigating the lost Temple crypts of Solomon using quantum LIDAR, Stanley Paden crafts a high-stakes race against rogue AI syndicates seeking biblical technology.",
     synopsis:
-      "Set in the rain-drenched megacity of Stark City, this saga follows corporate detectives, rogue hackers, and synthetic androids fighting for freedom.",
-    excerpt: `PROLOGUE: NEON RAIN
+      "Deep beneath Jerusalem, archaeological team lead Sarah Vance discovers an ancient vault sealed with harmonic resonance keys. What lies within is not gold, but a bio-quantum engine left to safeguard humanity's future.",
+    excerpt: `CHAPTER 1: THE HARMONIC SEAL
 
-The city never slept, and the neon never faded.
+The acoustic frequency hit 432 Hertz, and the stone door groaned.
 
-From the highest spire of Stark Corporate to the lowest drainage deck, millions of human and synthetic lives intersected in a flash of electric purple light.`,
+Sarah Vance stepped through the threshold, her flashlight cutting through three thousand years of darkness. Dust motes floated in the beam, illuminated by tiny micro-photonic crystals embedded in the limestone.
+
+"Dr. Vance," her comm-unit crackled. "Orbital satellites are picking up energy spikes directly above your location."`,
     buyLinks: {
       amazon: "https://amazon.com",
       kindle: "https://amazon.com/kindle",
       audible: "https://audible.com",
-      hardcover: "https://stanleypaden.com",
+      hardcover: "https://stanleypaden.com/shop/",
     },
     audioSample: "https://stanleypaden.com/wp-content/uploads/2026/01/Stanley-Paden-The-Box-Video-Trailer-1.mp4",
     features: [
-      "Rich cyberpunk megacity worldbuilding",
-      "Interconnected multi-perspective storylines",
-      "Stunning visual atmosphere and noir tone",
+      "Fast-paced archaeological cyber-mystery",
+      "Rich historical research & speculative technology",
+      "Available across all major book distributors",
     ],
   },
 ];
