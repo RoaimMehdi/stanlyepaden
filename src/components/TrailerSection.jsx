@@ -40,7 +40,7 @@ export default function TrailerSection({ isTrailerOpen, setIsTrailerOpen }) {
             autoPlay={false}
             muted={false}
             playsInline
-            poster="/assets/the_box_cover.png"
+            poster="/assets/the_box_cover.jpg"
             src={videoUrl}
           >
             Your browser does not support the video tag.

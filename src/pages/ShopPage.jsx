@@ -31,7 +31,7 @@ function ProductCard({ product, onAddToCart }) {
     : 'border-purple-500/60 text-purple-300 bg-purple-950/40';
 
   const handleAdd = () => {
-    onAddToCart({ ...product, format: selectedFormat, price: currentFormat.price, id: `${product.id}-${selectedFormat.toLowerCase()}` });
+    onAddToCart({ ...product, format: selectedFormat, price: currentFormat.price, id: product.id });
     setAdded(true);
     setTimeout(() => setAdded(false), 2000);
   };
@@ -87,24 +87,30 @@ function ProductCard({ product, onAddToCart }) {
         </div>
       </div>
 
-      {/* Format Selector */}
+      {/* Format — selector when multiple editions, static chip when single edition */}
       <div className="flex items-center gap-2">
         <span className="font-jura text-[10px] uppercase tracking-wider text-gray-500">Format:</span>
-        <div className="flex gap-2">
-          {product.formats.map(fmt => (
-            <button
-              key={fmt.label}
-              onClick={() => setSelectedFormat(fmt.label)}
-              className={`px-3 py-1 rounded-full font-jura text-[10px] font-bold uppercase tracking-wider border transition-all ${
-                selectedFormat === fmt.label
-                  ? formatBorderActive
-                  : 'border-white/10 text-gray-500 hover:text-gray-300 glass-panel'
-              }`}
-            >
-              {fmt.label}
-            </button>
-          ))}
-        </div>
+        {product.formats.length > 1 ? (
+          <div className="flex gap-2">
+            {product.formats.map(fmt => (
+              <button
+                key={fmt.label}
+                onClick={() => setSelectedFormat(fmt.label)}
+                className={`px-3 py-1 rounded-full font-jura text-[10px] font-bold uppercase tracking-wider border transition-all ${
+                  selectedFormat === fmt.label
+                    ? formatBorderActive
+                    : 'border-white/10 text-gray-500 hover:text-gray-300 glass-panel'
+                }`}
+              >
+                {fmt.label}
+              </button>
+            ))}
+          </div>
+        ) : (
+          <span className={`px-3 py-1 rounded-full font-jura text-[10px] font-bold uppercase tracking-wider border ${formatBorderActive}`}>
+            {product.formats[0].label}
+          </span>
+        )}
       </div>
 
       {/* Price + actions */}
@@ -183,7 +189,7 @@ export default function ShopPage() {
             Stanley Paden <span className="text-gradient-cyan">Shop</span>
           </h1>
           <p className="font-inter text-gray-400 text-sm sm:text-base leading-relaxed max-w-2xl mx-auto">
-            Order paperbacks and hardcovers directly. Each book is available in both formats — select your preferred edition on each card.
+            Order paperbacks and hardcovers directly. Every edition is listed separately with its own cover and price.
           </p>
         </div>
 
@@ -199,7 +205,7 @@ export default function ShopPage() {
           </button>
         </div>
 
-        {/* Product Grid — 6 unique books */}
+        {/* Product Grid — 10 editions (5 books x Paperback/Hardcover) */}
         <div className="grid grid-cols-1 xl:grid-cols-2 gap-8">
           {shopProducts.map((product, idx) => (
             <div key={product.id} data-reveal data-delay={String((idx % 2) * 150)}>

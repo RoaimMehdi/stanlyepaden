@@ -10,7 +10,7 @@ const videoReelClips = [
     tag: 'FEATURED CINEMATIC',
     accent: 'purple',
     caption: '“What if death could be indefinitely postponed? Enter the Box...”',
-    poster: '/assets/the_box_cover.png',
+    poster: '/assets/the_box_cover.jpg',
   },
   {
     id: 'clip-2',
@@ -20,7 +20,7 @@ const videoReelClips = [
     tag: 'ARCHAEOLOGICAL REEL',
     accent: 'cyan',
     caption: '“Sub-surface scanners detect a 30,000-year-old pre-dynastic vault...”',
-    poster: '/assets/return_egypt_cover.png',
+    poster: '/assets/return_to_egypt_portal_cover.jpg',
   },
   {
     id: 'clip-3',
@@ -30,7 +30,7 @@ const videoReelClips = [
     tag: 'NEON NOIR REEL',
     accent: 'red',
     caption: '“In the rain-drenched neon streets of dystopian Saint Louis...”',
-    poster: '/assets/i_hate_stl_cover.png',
+    poster: '/assets/i_hate_stl_cover.jpg',
   },
 ];
 

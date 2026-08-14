@@ -171,7 +171,7 @@ export default function HeroSection({ onOpenExcerpt, onOpenTrailer }) {
                 style={{ transition: 'transform 0.15s ease-out', transformStyle: 'preserve-3d' }}
               >
                 <img
-                  src="/assets/the_box_cover.png"
+                  src="/assets/the_box_cover.jpg"
                   alt="The Box Book Cover"
                   className="w-full h-full object-cover"
                 />
